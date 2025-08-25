@@ -1,11 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Easy Bridge International Academy</title>
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Optionnel : Config Tailwind custom -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E3A8A', // Bleu personnalisé
+                        secondary: '#2563EB',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Favicon ou autres meta -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
-<body>
-    
+
+<body class="font-sans text-gray-800">
+
+    <!-- Navbar -->
+    <header class="flex items-center justify-between px-8 py-4 shadow bg-white">
+  <!-- Logo -->
+  <div class="flex items-center space-x-3">
+    <img src="img/logo.jpg" alt="Logo EsyBridge" class="h-10">
+    <div class="leading-tight">
+      <h1 class="font-bold text-sm">Easy Bridge</h1>
+      <p class="text-xs text-gray-600">International Academy</p>
+    </div>
+  </div>
+
+  <!-- Menu -->
+  <nav class="flex space-x-8 text-sm font-medium text-teal-900">
+    <a href="#" class="hover:text-teal-600">Programmes <span class="ml-1">›</span></a>
+    <a href="#" class="hover:text-teal-600">Formation professionnelle <span class="ml-1">›</span></a>
+    <a href="#" class="hover:text-teal-600">Formation supérieure <span class="ml-1">›</span></a>
+    <a href="#" class="hover:text-teal-600">Carrières</a>
+    <a href="#" class="hover:text-teal-600">Entreprises <span class="ml-1">›</span></a>
+    <a href="#" class="hover:text-teal-600">Contactez-nous <span class="ml-1">›</span></a>
+  </nav>
+</header>
+
+
+    <main></main>
+    <footer></footer>
+
+
 </body>
+
 </html>
