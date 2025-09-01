@@ -2,63 +2,77 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Easy Bridge International Academy</title>
-
-    <!-- Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Optionnel : Config Tailwind custom -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#1E3A8A', // Bleu personnalisé
-                        secondary: '#2563EB',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-
-    <!-- Favicon ou autres meta -->
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entreprises | Easy Bridge International Academy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: '#B08E2A', secondary: '#203749', light: '#FFFFFF' } } }
+    }
+  </script>
 </head>
 
-<body class="font-sans text-gray-800">
-
-    <!-- Navbar -->
-    <header class="flex items-center justify-between px-8 py-4 shadow bg-white">
-  <!-- Logo -->
-  <div class="flex items-center space-x-3">
-    <img src="img/logo.jpg" alt="Logo EsyBridge" class="h-10">
-    <div class="leading-tight">
-      <h1 class="font-bold text-sm">Easy Bridge</h1>
-      <p class="text-xs text-gray-600">International Academy</p>
+<body class="font-sans text-secondary bg-light">
+  <header class="bg-light shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <a href="index.html"><img src="img/logo.jpg" alt="Logo EasyBridge" class="h-10"></a>
+        <div class="leading-tight">
+          <h1 class="font-bold text-sm text-secondary">Easy Bridge</h1>
+          <p class="text-xs text-gray-600">International Academy</p>
+        </div>
+      </div>
+      <button id="menu-btn" class="md:hidden flex flex-col space-y-1.5" aria-label="Menu">
+        <span class="block w-6 h-0.5 bg-secondary"></span>
+        <span class="block w-6 h-0.5 bg-secondary"></span>
+        <span class="block w-6 h-0.5 bg-secondary"></span>
+      </button>
+      <nav class="hidden md:flex space-x-6 lg:space-x-8 font-medium text-sm">
+        <a href="Actualites.html">Actualités</a>
+        <a href="FormationProf.html">Formation professionnelle</a>
+        <a href="FormationSup.html">Formation supérieure</a>
+        <a href="Carrieres.html">Carrières</a>
+        <a href="Entreprises.html">Entreprises</a>
+        <a href="ContactezNous.html">Contactez-nous</a>
+      </nav>
     </div>
-  </div>
+    <nav id="mobile-menu" class="hidden flex-col space-y-2 px-6 pb-4 md:hidden bg-light shadow">
+      <a href="Actualites.html">Actualités</a>
+      <a href="FormationProf.html">Formation professionnelle</a>
+      <a href="FormationSup.html">Formation supérieure</a>
+      <a href="Carrieres.html">Carrières</a>
+      <a href="Entreprises.html">Entreprises</a>
+      <a href="ContactezNous.html">Contactez-nous</a>
+    </nav>
+  </header>
 
-  <!-- Menu -->
-  <nav class="flex space-x-8 text-sm font-medium text-teal-900">
-    <a href="Actualites.html" class="hover:text-teal-600">Actualités <span class="ml-1">›</span></a>
-    <a href="FormationProf.html" class="hover:text-teal-600">Formation professionnelle <span class="ml-1">›</span></a>
-    <a href="FormationSup.html" class="hover:text-teal-600">Formation supérieure <span class="ml-1">›</span></a>
-    <a href="Carrieres.html" class="hover:text-teal-600">Carrières</a>
-    <a href="Entreprises.html" class="hover:text-teal-600">Entreprises <span class="ml-1">›</span></a>
-    <a href="ContactezNous.html" class="hover:text-teal-600">Contactez-nous <span class="ml-1">›</span></a>
-  </nav>
-</header>
+  <section class="bg-secondary text-light py-12 text-center">
+    <h2 class="text-3xl font-bold">Partenariats Entreprises</h2>
+    <p class="mt-2">Construisons l’avenir ensemble</p>
+  </section>
 
+  <main class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8">
+    <div class="bg-white p-6 shadow rounded-xl">
+      <h3 class="font-semibold text-lg">Recrutement</h3>
+      <p class="text-sm text-gray-600">Accédez à un vivier de jeunes talents formés pour votre secteur.</p>
+    </div>
+    <div class="bg-white p-6 shadow rounded-xl">
+      <h3 class="font-semibold text-lg">Formations sur mesure</h3>
+      <p class="text-sm text-gray-600">Des modules adaptés aux besoins spécifiques de votre entreprise.</p>
+    </div>
+    <div class="bg-white p-6 shadow rounded-xl">
+      <h3 class="font-semibold text-lg">Événements & conférences</h3>
+      <p class="text-sm text-gray-600">Participez à nos journées carrière, forums et rencontres professionnelles.</p>
+    </div>
+    <div class="bg-white p-6 shadow rounded-xl">
+      <h3 class="font-semibold text-lg">Partenariats académiques</h3>
+      <p class="text-sm text-gray-600">Développons ensemble des projets de recherche et d’innovation.</p>
+    </div>
+  </main>
 
-    <main></main>
-    <footer></footer>
-
-
+  <footer class="bg-secondary text-light py-4 text-center text-sm">© 2025 Easy Bridge International Academy.</footer>
+  <script>/* script identique */</script>
 </body>
 
 </html>
