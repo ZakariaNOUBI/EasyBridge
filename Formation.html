@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formations | Easy Bridge International Academy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: '#B08E2A', secondary: '#203749', light: '#FFFFFF' } } }
+    }
+  </script>
+</head>
+
+<body class="font-sans text-secondary bg-light">
+
+  <!-- Header -->
+  <header class="bg-light shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <a href="index.html"><img src="img/logo.jpg" alt="Logo EasyBridge" class="h-10"></a>
+        <div class="leading-tight">
+          <h1 class="font-bold text-sm text-secondary">Easy Bridge</h1>
+          <p class="text-xs text-gray-600">International Academy</p>
+        </div>
+      </div>
+      <button id="menu-btn" class="md:hidden flex flex-col space-y-1.5" aria-label="Menu">
+        <span class="block w-6 h-0.5 bg-secondary"></span>
+        <span class="block w-6 h-0.5 bg-secondary"></span>
+        <span class="block w-6 h-0.5 bg-secondary"></span>
+      </button>
+      <nav class="hidden md:flex space-x-6 lg:space-x-8 font-medium text-sm">
+        <a href="Actualites.html">Actualités</a>
+        <a href="Formation.html">Nos formations</a>
+        <a href="Carrieres.html">Carrières</a>
+        <a href="Entreprises.html">Entreprises</a>
+        <a href="ContactezNous.html">Contactez-nous</a>
+      </nav>
+    </div>
+    <nav id="mobile-menu" class="hidden flex-col space-y-2 px-6 pb-4 md:hidden bg-light shadow">
+      <a href="Actualites.html">Actualités</a>
+      <a href="Formation.html">Nos formations</a>
+      <a href="Carrieres.html">Carrières</a>
+      <a href="Entreprises.html">Entreprises</a>
+      <a href="ContactezNous.html">Contactez-nous</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-secondary text-light py-12 text-center">
+    <h2 class="text-3xl font-bold">Nos Formations</h2>
+    <p class="mt-2">Un enseignement de qualité pour préparer votre avenir</p>
+  </section>
+
+  <!-- Section 1 : Formations Supérieures -->
+  <section class="max-w-6xl mx-auto px-6 py-12">
+    <h3 class="text-2xl font-bold text-secondary mb-8 text-center">Formations Supérieures</h3>
+    <div class="grid md:grid-cols-2 gap-8">
+
+      <!-- Pôle Gestion -->
+      <div class="bg-white p-6 shadow rounded-xl">
+        <img src="img/gestion.jpg" class="rounded-lg mb-4" alt="Pôle Gestion">
+        <h4 class="font-semibold text-lg">Pôle Gestion</h4>
+        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+          <li><a href="fichiers/Catalogue Formations-2.pdf" target="_blank" rel="noopener noreferrer">Bachelor en
+              Management des PME</a></li>
+          <li><a href="fichiers/Catalogue Formations-3.pdf" target="_blank" rel="noopener noreferrer">Master en Management
+              des PME</a></li>
+          <li><a href="fichiers/Catalogue Formations-6.pdf" target="_blank" rel="noopener noreferrer">Bachelor en
+              Management des RH</a></li>
+          <li><a href="fichiers/Catalogue Formations-7.pdf" target="_blank" rel="noopener noreferrer">Master en
+              Management des PME</a></li>
+        </ul>
+      </div>
+
+      <!-- Pôle Informatique -->
+      <div class="bg-white p-6 shadow rounded-xl">
+        <img src="img/informatique.jpg" class="rounded-lg mb-4" alt="Pôle Informatique">
+        <h4 class="font-semibold text-lg">Pôle Informatique</h4>
+        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+          <li><a href="fichiers/Catalogue Formations-28.pdf" target="_blank" rel="noopener noreferrer">Bachelor en Systèmes et Réseaux Informatiques
+</a></li>
+         <li><a href="fichiers/Catalogue Formations-29.pdf" target="_blank" rel="noopener noreferrer">Master en Systèmes et Réseaux Informatiques
+</a></li>
+          <li><a href="fichiers/Catalogue Formations-30.pdf" target="_blank" rel="noopener noreferrer">Bachelor en Développement Logiciel</a></li>
+              <li><a href="fichiers/Catalogue Formations-31.pdf" target="_blank" rel="noopener noreferrer">Master en Développement Logiciel</a></li>
+        </ul>
+      </div>
+
+      <!-- Pôle Génie appliqué -->
+      <div class="bg-white p-6 shadow rounded-xl">
+        <img src="img/genie.jpg" class="rounded-lg mb-4" alt="Pôle Génie appliqué">
+        <h4 class="font-semibold text-lg">Pôle Génie appliqué</h4>
+        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+          <li><a href="fichiers/Catalogue Formations-69.pdf" target="_blank" rel="noopener noreferrer">Bachelor en Efficacité énergétique</a></li>
+          <li><a href="fichiers/Catalogue Formations-70.pdf" target="_blank" rel="noopener noreferrer">Master en Efficacité Énergétique</a></li>
+          <li><a href="fichiers/Catalogue Formations-75.pdf" target="_blank" rel="noopener noreferrer">Bachelor en Génie climatique et froid</a></li>
+          <li><a href="fichiers/Catalogue Formations-76.pdf" target="_blank" rel="noopener noreferrer">Master en Génie climatique et froid</a></li>
+        </ul>
+      </div>
+
+      <!-- Pôle Logistique -->
+      <div class="bg-white p-6 shadow rounded-xl">
+        <img src="img/logistique.jpg" class="rounded-lg mb-4" alt="Pôle Logistique">
+        <h4 class="font-semibold text-lg">Pôle Logistique</h4>
+        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+          <li>Bachelor en Logistique</li>
+          <li>Master en Transport et Chaîne d’approvisionnement</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 2 : Formations Professionnelles -->
+  <section class="bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <h3 class="text-2xl font-bold text-secondary mb-8 text-center">Formations Professionnelles</h3>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 shadow rounded-xl">
+          <img src="img/pro1.jpg" class="rounded-lg mb-4" alt="Formation courte">
+          <h4 class="font-semibold text-lg">Formations courtes</h4>
+          <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+            <li>Initiation à l’informatique</li>
+            <li>Techniques de communication</li>
+            <li>Gestion de projet agile</li>
+          </ul>
+        </div>
+        <div class="bg-white p-6 shadow rounded-xl">
+          <img src="img/pro2.jpg" class="rounded-lg mb-4" alt="Certificats">
+          <h4 class="font-semibold text-lg">Certificats professionnels</h4>
+          <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+            <li>Comptabilité</li>
+            <li>Marketing digital</li>
+            <li>Langues (Anglais / Français)</li>
+          </ul>
+        </div>
+        <div class="bg-white p-6 shadow rounded-xl">
+          <img src="img/pro3.jpg" class="rounded-lg mb-4" alt="Techniques">
+          <h4 class="font-semibold text-lg">Formations techniques</h4>
+          <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+            <li>Électricité et maintenance</li>
+            <li>Réseaux et cybersécurité</li>
+            <li>Design et infographie</li>
+          </ul>
+        </div>
+        <div class="bg-white p-6 shadow rounded-xl">
+          <img src="img/pro4.jpg" class="rounded-lg mb-4" alt="Sur mesure">
+          <h4 class="font-semibold text-lg">Programmes sur mesure</h4>
+          <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+            <li>Leadership</li>
+            <li>Développement d’équipe</li>
+            <li>Gestion de crise</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3 : Soutien scolaire & Langues -->
+  <section>
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <h3 class="text-2xl font-bold text-secondary mb-8 text-center">Soutien scolaire & Langues</h3>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 shadow rounded-xl">
+          <img src="img/soutien.jpg" class="rounded-lg mb-4" alt="Soutien scolaire">
+          <h4 class="font-semibold text-lg">Soutien scolaire</h4>
+          <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+            <li>Accompagnement primaire et secondaire</li>
+            <li>Préparation aux examens</li>
+            <li>Renforcement en mathématiques et sciences</li>
+          </ul>
+        </div>
+        <div class="bg-white p-6 shadow rounded-xl">
+          <img src="img/langues.jpg" class="rounded-lg mb-4" alt="Langues">
+          <h4 class="font-semibold text-lg">Cours de langues</h4>
+          <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+            <li>Anglais intensif</li>
+            <li>Français professionnel</li>
+            <li>Espagnol débutant et avancé</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-secondary text-light py-4 text-center text-sm">© 2025 Easy Bridge International Academy.</footer>
+
+  <script>
+    const btn = document.getElementById("menu-btn");
+    const menu = document.getElementById("mobile-menu");
+    if (btn && menu) btn.addEventListener("click", () => menu.classList.toggle("hidden"));
+    (function activeLink() {
+      let current = location.pathname.split("/").pop() || "index.html";
+      current = current.toLowerCase();
+      document.querySelectorAll("header nav a[href]").forEach(a => {
+        let target = (a.getAttribute("href") || "").split("/").pop().toLowerCase();
+        if (target === current) a.classList.add("font-semibold", "text-primary");
+      });
+    })();
+  </script>
+</body>
+
+</html>
