@@ -55,135 +55,208 @@
 
   <!-- Section 1 : Formations Supérieures -->
   <section class="max-w-6xl mx-auto px-6 py-12">
-    <h3 class="text-2xl font-bold text-secondary mb-8 text-center">Formations Supérieures</h3>
+  <h3 class="text-3xl font-bold text-secondary mb-12 text-center animate-fade-in">
+    🎓 Formations Supérieures
+  </h3>
+
+  <!-- Filtres -->
+  <div class="flex justify-center gap-4 mb-10 flex-wrap">
+    <button class="filter-btn bg-secondary text-white px-4 py-2 rounded-full text-sm hover:bg-primary transition" data-filter="all">Tous</button>
+    <button class="filter-btn bg-gray-200 px-4 py-2 rounded-full text-sm hover:bg-secondary hover:text-white transition" data-filter="gestion">Pôle Gestion</button>
+    <button class="filter-btn bg-gray-200 px-4 py-2 rounded-full text-sm hover:bg-secondary hover:text-white transition" data-filter="informatique">Pôle Informatique</button>
+    <button class="filter-btn bg-gray-200 px-4 py-2 rounded-full text-sm hover:bg-secondary hover:text-white transition" data-filter="genie">Pôle Génie appliqué</button>
+    <button class="filter-btn bg-gray-200 px-4 py-2 rounded-full text-sm hover:bg-secondary hover:text-white transition" data-filter="logistique">Pôle Logistique</button>
+  </div>
+
+  <div id="formations-grid" class="grid md:grid-cols-2 gap-8">
+
+    <!-- Pôle Gestion -->
+    <div class="formation-card gestion bg-white p-6 shadow-lg rounded-2xl transform transition duration-500 hover:scale-105 hover:shadow-2xl animate-slide-up">
+      <h4 class="font-semibold text-xl mb-3 text-primary">📊 Pôle Gestion</h4>
+      <ul class="space-y-2 text-sm text-gray-700">
+        <li>🎓 <a href="fichiers/Catalogue Formations-2.pdf" target="_blank" class="hover:text-secondary hover:underline">Bachelor en Management des PME</a></li>
+        <li>🎓 <a href="fichiers/Catalogue Formations-3.pdf" target="_blank" class="hover:text-secondary hover:underline">Master en Management des PME</a></li>
+        <li>🎓 <a href="fichiers/Catalogue Formations-6.pdf" target="_blank" class="hover:text-secondary hover:underline">Bachelor en Management des RH</a></li>
+        <li>🎓 <a href="fichiers/Catalogue Formations-7.pdf" target="_blank" class="hover:text-secondary hover:underline">Master en Management des PME</a></li>
+      </ul>
+    </div>
+
+    <!-- Pôle Informatique -->
+    <div class="formation-card informatique bg-white p-6 shadow-lg rounded-2xl transform transition duration-500 hover:scale-105 hover:shadow-2xl animate-slide-up delay-200">
+      <h4 class="font-semibold text-xl mb-3 text-primary">💻 Pôle Informatique</h4>
+      <ul class="space-y-2 text-sm text-gray-700">
+        <li>🎓 <a href="fichiers/Catalogue Formations-28.pdf" target="_blank" class="hover:text-secondary hover:underline">Bachelor en Systèmes et Réseaux Informatiques</a></li>
+        <li>🎓 <a href="fichiers/Catalogue Formations-29.pdf" target="_blank" class="hover:text-secondary hover:underline">Master en Systèmes et Réseaux Informatiques</a></li>
+        <li>🎓 <a href="fichiers/Catalogue Formations-30.pdf" target="_blank" class="hover:text-secondary hover:underline">Bachelor en Développement Logiciel</a></li>
+        <li>🎓 <a href="fichiers/Catalogue Formations-31.pdf" target="_blank" class="hover:text-secondary hover:underline">Master en Développement Logiciel</a></li>
+      </ul>
+    </div>
+
+    <!-- Pôle Génie appliqué -->
+    <div class="formation-card genie bg-white p-6 shadow-lg rounded-2xl transform transition duration-500 hover:scale-105 hover:shadow-2xl animate-slide-up delay-400">
+
+      <h4 class="font-semibold text-xl mb-3 text-primary">🛠️ Pôle Génie appliqué</h4>
+      <ul class="space-y-2 text-sm text-gray-700">
+        <li>🎓 <a href="fichiers/Catalogue Formations-69.pdf" target="_blank" class="hover:text-secondary hover:underline">Bachelor en Efficacité énergétique</a></li>
+        <li>🎓 <a href="fichiers/Catalogue Formations-70.pdf" target="_blank" class="hover:text-secondary hover:underline">Master en Efficacité Énergétique</a></li>
+        <li>🎓 <a href="fichiers/Catalogue Formations-75.pdf" target="_blank" class="hover:text-secondary hover:underline">Bachelor en Génie climatique et froid</a></li>
+        <li>🎓 <a href="fichiers/Catalogue Formations-76.pdf" target="_blank" class="hover:text-secondary hover:underline">Master en Génie climatique et froid</a></li>
+      </ul>
+    </div>
+
+    <!-- Pôle Logistique -->
+    <div class="formation-card logistique bg-white p-6 shadow-lg rounded-2xl transform transition duration-500 hover:scale-105 hover:shadow-2xl animate-slide-up delay-600">
+      <h4 class="font-semibold text-xl mb-3 text-primary">🚚 Pôle Logistique</h4>
+      <ul class="space-y-2 text-sm text-gray-700">
+        <li>🎓 <a href="fichiers/Catalogue Formations-56.pdf" target="_blank" class="hover:text-secondary hover:underline">Bachelor en Logistique et transports</a></li>
+        <li>🎓 <a href="fichiers/Catalogue Formations-57.pdf" target="_blank" class="hover:text-secondary hover:underline">Master en Logistique et transports</a></li>
+        <li>🎓 <a href="fichiers/Catalogue Formations-58.pdf" target="_blank" class="hover:text-secondary hover:underline">Bachelor en Génie Civil et Construction</a></li>
+        <li>🎓 <a href="fichiers/Catalogue Formations-59.pdf" target="_blank" class="hover:text-secondary hover:underline">Master en Génie Civil et Construction</a></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- Animations -->
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+  .animate-slide-up {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+  }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-400 { animation-delay: 0.4s; }
+  .delay-600 { animation-delay: 0.6s; }
+</style>
+
+<!-- Script Filtrage -->
+<script>
+  const buttons = document.querySelectorAll(".filter-btn");
+  const cards = document.querySelectorAll(".formation-card");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const filter = btn.dataset.filter;
+
+      buttons.forEach(b => b.classList.remove("bg-secondary","text-white"));
+      btn.classList.add("bg-secondary","text-white");
+
+      cards.forEach(card => {
+        if (filter === "all" || card.classList.contains(filter)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+</script>
+
+<!-- Section 2 : Formations Professionnelles -->
+<section class="bg-gray-50">
+  <div class="max-w-6xl mx-auto px-6 py-12">
+    <h3 class="text-3xl font-bold text-secondary mb-12 text-center animate-fade-in">
+      🛠️ Formations Professionnelles
+    </h3>
+
     <div class="grid md:grid-cols-2 gap-8">
 
-      <!-- Pôle Gestion -->
-      <div class="bg-white p-6 shadow rounded-xl">
-        <img src="img/gestion.jpg" class="rounded-lg mb-4" alt="Pôle Gestion">
-        <h4 class="font-semibold text-lg">Pôle Gestion</h4>
-        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
-          <li><a href="fichiers/Catalogue Formations-2.pdf" target="_blank" rel="noopener noreferrer">Bachelor en
-              Management des PME</a></li>
-          <li><a href="fichiers/Catalogue Formations-3.pdf" target="_blank" rel="noopener noreferrer">Master en Management
-              des PME</a></li>
-          <li><a href="fichiers/Catalogue Formations-6.pdf" target="_blank" rel="noopener noreferrer">Bachelor en
-              Management des RH</a></li>
-          <li><a href="fichiers/Catalogue Formations-7.pdf" target="_blank" rel="noopener noreferrer">Master en
-              Management des PME</a></li>
+      <div class="bg-white p-6 shadow-lg rounded-2xl transform transition duration-500 hover:scale-105 hover:shadow-2xl animate-slide-up">
+        <h4 class="font-semibold text-xl mb-3 text-primary">⚡ Formations courtes</h4>
+        <ul class="space-y-2 text-sm text-gray-700">
+          <li>🎯 Initiation à l’informatique</li>
+          <li>🗣️ Techniques de communication</li>
+          <li>📊 Gestion de projet agile</li>
         </ul>
       </div>
 
-      <!-- Pôle Informatique -->
-      <div class="bg-white p-6 shadow rounded-xl">
-        <img src="img/informatique.jpg" class="rounded-lg mb-4" alt="Pôle Informatique">
-        <h4 class="font-semibold text-lg">Pôle Informatique</h4>
-        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
-          <li><a href="fichiers/Catalogue Formations-28.pdf" target="_blank" rel="noopener noreferrer">Bachelor en Systèmes et Réseaux Informatiques
-</a></li>
-         <li><a href="fichiers/Catalogue Formations-29.pdf" target="_blank" rel="noopener noreferrer">Master en Systèmes et Réseaux Informatiques
-</a></li>
-          <li><a href="fichiers/Catalogue Formations-30.pdf" target="_blank" rel="noopener noreferrer">Bachelor en Développement Logiciel</a></li>
-              <li><a href="fichiers/Catalogue Formations-31.pdf" target="_blank" rel="noopener noreferrer">Master en Développement Logiciel</a></li>
+      <div class="bg-white p-6 shadow-lg rounded-2xl transform transition duration-500 hover:scale-105 hover:shadow-2xl animate-slide-up delay-200">
+        <h4 class="font-semibold text-xl mb-3 text-primary">📜 Certificats professionnels</h4>
+        <ul class="space-y-2 text-sm text-gray-700">
+          <li>💼 Comptabilité</li>
+          <li>📢 Marketing digital</li>
+          <li>🌍 Langues (Anglais / Français)</li>
         </ul>
       </div>
 
-      <!-- Pôle Génie appliqué -->
-      <div class="bg-white p-6 shadow rounded-xl">
-        <img src="img/genie.jpg" class="rounded-lg mb-4" alt="Pôle Génie appliqué">
-        <h4 class="font-semibold text-lg">Pôle Génie appliqué</h4>
-        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
-          <li><a href="fichiers/Catalogue Formations-69.pdf" target="_blank" rel="noopener noreferrer">Bachelor en Efficacité énergétique</a></li>
-          <li><a href="fichiers/Catalogue Formations-70.pdf" target="_blank" rel="noopener noreferrer">Master en Efficacité Énergétique</a></li>
-          <li><a href="fichiers/Catalogue Formations-75.pdf" target="_blank" rel="noopener noreferrer">Bachelor en Génie climatique et froid</a></li>
-          <li><a href="fichiers/Catalogue Formations-76.pdf" target="_blank" rel="noopener noreferrer">Master en Génie climatique et froid</a></li>
+      <div class="bg-white p-6 shadow-lg rounded-2xl transform transition duration-500 hover:scale-105 hover:shadow-2xl animate-slide-up delay-400">
+        <h4 class="font-semibold text-xl mb-3 text-primary">🔧 Formations techniques</h4>
+        <ul class="space-y-2 text-sm text-gray-700">
+          <li>⚙️ Électricité et maintenance</li>
+          <li>🛡️ Réseaux et cybersécurité</li>
+          <li>🎨 Design et infographie</li>
         </ul>
       </div>
 
-      <!-- Pôle Logistique -->
-      <div class="bg-white p-6 shadow rounded-xl">
-        <img src="img/logistique.jpg" class="rounded-lg mb-4" alt="Pôle Logistique">
-        <h4 class="font-semibold text-lg">Pôle Logistique</h4>
-        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
-          <li>Bachelor en Logistique</li>
-          <li>Master en Transport et Chaîne d’approvisionnement</li>
+      <div class="bg-white p-6 shadow-lg rounded-2xl transform transition duration-500 hover:scale-105 hover:shadow-2xl animate-slide-up delay-600">
+        <h4 class="font-semibold text-xl mb-3 text-primary">🎯 Programmes sur mesure</h4>
+        <ul class="space-y-2 text-sm text-gray-700">
+          <li>⭐ Leadership</li>
+          <li>🤝 Développement d’équipe</li>
+          <li>🚨 Gestion de crise</li>
         </ul>
       </div>
 
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Section 2 : Formations Professionnelles -->
-  <section class="bg-gray-50">
-    <div class="max-w-6xl mx-auto px-6 py-12">
-      <h3 class="text-2xl font-bold text-secondary mb-8 text-center">Formations Professionnelles</h3>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-white p-6 shadow rounded-xl">
-          <img src="img/pro1.jpg" class="rounded-lg mb-4" alt="Formation courte">
-          <h4 class="font-semibold text-lg">Formations courtes</h4>
-          <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
-            <li>Initiation à l’informatique</li>
-            <li>Techniques de communication</li>
-            <li>Gestion de projet agile</li>
-          </ul>
-        </div>
-        <div class="bg-white p-6 shadow rounded-xl">
-          <img src="img/pro2.jpg" class="rounded-lg mb-4" alt="Certificats">
-          <h4 class="font-semibold text-lg">Certificats professionnels</h4>
-          <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
-            <li>Comptabilité</li>
-            <li>Marketing digital</li>
-            <li>Langues (Anglais / Français)</li>
-          </ul>
-        </div>
-        <div class="bg-white p-6 shadow rounded-xl">
-          <img src="img/pro3.jpg" class="rounded-lg mb-4" alt="Techniques">
-          <h4 class="font-semibold text-lg">Formations techniques</h4>
-          <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
-            <li>Électricité et maintenance</li>
-            <li>Réseaux et cybersécurité</li>
-            <li>Design et infographie</li>
-          </ul>
-        </div>
-        <div class="bg-white p-6 shadow rounded-xl">
-          <img src="img/pro4.jpg" class="rounded-lg mb-4" alt="Sur mesure">
-          <h4 class="font-semibold text-lg">Programmes sur mesure</h4>
-          <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
-            <li>Leadership</li>
-            <li>Développement d’équipe</li>
-            <li>Gestion de crise</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- Section 3 : Soutien scolaire & Langues -->
+<section>
+  <div class="max-w-6xl mx-auto px-6 py-12">
+    <h3 class="text-3xl font-bold text-secondary mb-12 text-center animate-fade-in">
+      📚 Soutien scolaire & Langues
+    </h3>
 
-  <!-- Section 3 : Soutien scolaire & Langues -->
-  <section>
-    <div class="max-w-6xl mx-auto px-6 py-12">
-      <h3 class="text-2xl font-bold text-secondary mb-8 text-center">Soutien scolaire & Langues</h3>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-white p-6 shadow rounded-xl">
-          <img src="img/soutien.jpg" class="rounded-lg mb-4" alt="Soutien scolaire">
-          <h4 class="font-semibold text-lg">Soutien scolaire</h4>
-          <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
-            <li>Accompagnement primaire et secondaire</li>
-            <li>Préparation aux examens</li>
-            <li>Renforcement en mathématiques et sciences</li>
-          </ul>
-        </div>
-        <div class="bg-white p-6 shadow rounded-xl">
-          <img src="img/langues.jpg" class="rounded-lg mb-4" alt="Langues">
-          <h4 class="font-semibold text-lg">Cours de langues</h4>
-          <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
-            <li>Anglais intensif</li>
-            <li>Français professionnel</li>
-            <li>Espagnol débutant et avancé</li>
-          </ul>
-        </div>
+    <div class="grid md:grid-cols-2 gap-8">
+
+      <div class="bg-white p-6 shadow-lg rounded-2xl transform transition duration-500 hover:scale-105 hover:shadow-2xl animate-slide-up">
+        <h4 class="font-semibold text-xl mb-3 text-primary">📖 Soutien scolaire</h4>
+        <ul class="space-y-2 text-sm text-gray-700">
+          <li>🧮 Accompagnement primaire et secondaire</li>
+          <li>📝 Préparation aux examens</li>
+          <li>🔢 Renforcement en mathématiques et sciences</li>
+        </ul>
       </div>
+
+      <div class="bg-white p-6 shadow-lg rounded-2xl transform transition duration-500 hover:scale-105 hover:shadow-2xl animate-slide-up delay-200">
+        <h4 class="font-semibold text-xl mb-3 text-primary">🌐 Cours de langues</h4>
+        <ul class="space-y-2 text-sm text-gray-700">
+          <li>🇬🇧 Anglais intensif</li>
+          <li>🇫🇷 Français professionnel</li>
+          <li>🇪🇸 Espagnol débutant et avancé</li>
+        </ul>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Animations -->
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+  .animate-slide-up {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+  }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-400 { animation-delay: 0.4s; }
+  .delay-600 { animation-delay: 0.6s; }
+</style>
+
 
   <!-- Footer -->
   <footer class="bg-secondary text-light py-4 text-center text-sm">© 2025 Easy Bridge International Academy.</footer>
