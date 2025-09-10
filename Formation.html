@@ -14,38 +14,124 @@
 </head>
 
 <body class="font-sans text-secondary bg-light">
-
-  <!-- Header -->
-  <header class="bg-light shadow sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 md:px-10 py-4 flex justify-between items-center">
-      <div class="flex items-center space-x-3">
-        <a href="index.html"><img src="img/logo.jpg" alt="Logo EasyBridge" class="h-10"></a>
-        <div class="leading-tight">
-          <h1 class="font-bold text-sm text-secondary">Easy Bridge</h1>
-          <p class="text-xs text-gray-600">International Academy</p>
-        </div>
+<!-- Header -->
+<header class="bg-light shadow sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 py-4 flex justify-between items-center">
+    <!-- Logo -->
+    <div class="flex items-center space-x-3">
+      <a href="index.html"><img src="img/logo.jpg" alt="Logo EasyBridge" class="h-10"></a>
+      <div class="leading-tight">
+        <h1 class="font-bold text-sm text-secondary">Easy Bridge</h1>
+        <p class="text-xs text-gray-600">International Academy</p>
       </div>
-      <button id="menu-btn" class="md:hidden flex flex-col space-y-1.5" aria-label="Menu">
-        <span class="block w-6 h-0.5 bg-secondary"></span>
-        <span class="block w-6 h-0.5 bg-secondary"></span>
-        <span class="block w-6 h-0.5 bg-secondary"></span>
-      </button>
-      <nav class="hidden md:flex space-x-6 lg:space-x-8 font-medium text-sm">
-        <a href="Actualites.html">Actualités</a>
-        <a href="Formation.html">Nos formations</a>
-        <a href="Carrieres.html">Carrières</a>
-        <a href="Entreprises.html">Entreprises</a>
-        <a href="ContactezNous.html">Contactez-nous</a>
-      </nav>
     </div>
-    <nav id="mobile-menu" class="hidden flex-col space-y-2 px-6 pb-4 md:hidden bg-light shadow">
+
+    <!-- Bouton menu mobile -->
+    <button id="menu-btn" class="md:hidden flex flex-col space-y-1.5" aria-label="Menu" aria-expanded="false">
+      <span class="block w-6 h-0.5 bg-secondary"></span>
+      <span class="block w-6 h-0.5 bg-secondary"></span>
+      <span class="block w-6 h-0.5 bg-secondary"></span>
+    </button>
+
+    <!-- Menu desktop -->
+    <nav class="hidden md:flex space-x-6 lg:space-x-8 font-medium text-sm">
       <a href="Actualites.html">Actualités</a>
       <a href="Formation.html">Nos formations</a>
       <a href="Carrieres.html">Carrières</a>
       <a href="Entreprises.html">Entreprises</a>
       <a href="ContactezNous.html">Contactez-nous</a>
     </nav>
-  </header>
+  </div>
+
+  <!-- Menu mobile (dépliage vertical) -->
+  <nav id="mobile-menu"
+       class="mobile-collapsible md:hidden bg-light border-t border-gray-200"
+       style="height:0">
+    <div class="flex flex-col px-6 pb-2">
+      <a href="Actualites.html" class="block py-3 hover:text-primary border-b border-gray-100">Actualités</a>
+      <a href="Formation.html" class="block py-3 hover:text-primary border-b border-gray-100">Nos formations</a>
+      <a href="Carrieres.html" class="block py-3 hover:text-primary border-b border-gray-100">Carrières</a>
+      <a href="Entreprises.html" class="block py-3 hover:text-primary border-b border-gray-100">Entreprises</a>
+      <a href="ContactezNous.html" class="block py-3 hover:text-primary">Contactez-nous</a>
+    </div>
+  </nav>
+</header>
+
+<!-- Styles -->
+<style>
+  /* Animation fluide de la hauteur (vertical slide) */
+  .mobile-collapsible {
+    overflow: hidden;
+    transition: height 300ms ease;
+  }
+</style>
+
+<!-- Script -->
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+
+  function openMenu() {
+    // Mesurer la hauteur intérieure
+    const content = menu.firstElementChild;
+    const targetHeight = content.scrollHeight;
+    menu.style.height = targetHeight + "px";
+    btn.setAttribute("aria-expanded", "true");
+
+    // Après l'animation, fixer à 'auto' pour suivre le contenu
+    const onEnd = () => {
+      if (btn.getAttribute("aria-expanded") === "true") menu.style.height = "auto";
+      menu.removeEventListener("transitionend", onEnd);
+    };
+    menu.addEventListener("transitionend", onEnd);
+  }
+
+  function closeMenu() {
+    // Passer de auto à une valeur fixe pour animer vers 0
+    const currentHeight = menu.scrollHeight;
+    menu.style.height = currentHeight + "px";
+    // forcer le reflow
+    menu.getBoundingClientRect();
+    menu.style.height = "0px";
+    btn.setAttribute("aria-expanded", "false");
+  }
+
+  if (btn && menu) {
+    btn.addEventListener("click", () => {
+      const expanded = btn.getAttribute("aria-expanded") === "true";
+      expanded ? closeMenu() : openMenu();
+    });
+
+    // Fermer après clic sur un lien
+    menu.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => {
+        if (btn.getAttribute("aria-expanded") === "true") closeMenu();
+      });
+    });
+
+    // Réinitialiser au resize (>= md)
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 768) {
+        menu.style.height = "auto";
+        btn.setAttribute("aria-expanded", "false");
+      } else {
+        // Replie par défaut en mobile
+        menu.style.height = "0px";
+      }
+    });
+  }
+
+  // Surbrillance du lien actif (desktop + mobile)
+  (function activeLink() {
+    let current = location.pathname.split("/").pop() || "index.html";
+    current = current.toLowerCase();
+    document.querySelectorAll("header nav a[href]").forEach(a => {
+      let target = (a.getAttribute("href") || "").split("/").pop().toLowerCase();
+      if (target === current) a.classList.add("font-semibold", "text-primary");
+    });
+  })();
+</script>
+
 
   <!-- Hero -->
   <section class="bg-secondary text-light py-12 text-center">
@@ -54,8 +140,8 @@
   </section>
 
   <!-- Section 1 : Formations Supérieures -->
-  <section class="max-w-6xl mx-auto px-6 py-12">
-  <h3 class="text-3xl font-bold text-secondary mb-12 text-center animate-fade-in">
+  <section id="Fs" class="max-w-6xl mx-auto px-6 py-12">
+  <h3  class="text-3xl font-bold text-secondary mb-12 text-center animate-fade-in">
     🎓 Formations Supérieures
   </h3>
 
@@ -160,7 +246,7 @@
 </script>
 
 <!-- Section 2 : Formations Professionnelles -->
-<section class="bg-gray-50">
+<section id="Fp"  class="bg-gray-50">
   <div class="max-w-6xl mx-auto px-6 py-12">
     <h3 class="text-3xl font-bold text-secondary mb-12 text-center animate-fade-in">
       🛠️ Formations Professionnelles
@@ -258,22 +344,11 @@
 </style>
 
 
+
   <!-- Footer -->
   <footer class="bg-secondary text-light py-4 text-center text-sm">© 2025 Easy Bridge International Academy.</footer>
 
-  <script>
-    const btn = document.getElementById("menu-btn");
-    const menu = document.getElementById("mobile-menu");
-    if (btn && menu) btn.addEventListener("click", () => menu.classList.toggle("hidden"));
-    (function activeLink() {
-      let current = location.pathname.split("/").pop() || "index.html";
-      current = current.toLowerCase();
-      document.querySelectorAll("header nav a[href]").forEach(a => {
-        let target = (a.getAttribute("href") || "").split("/").pop().toLowerCase();
-        if (target === current) a.classList.add("font-semibold", "text-primary");
-      });
-    })();
-  </script>
+
 </body>
 
 </html>
