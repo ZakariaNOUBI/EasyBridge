@@ -1,21 +1,68 @@
 
-        @keyframes fade-in {
-          0% {
-            opacity: 0;
-            transform: translateY(20px);
-          }
 
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
+        // ============================
+// Animation Menu Mobile
+// ============================
+.mobile-collapsible {
+  overflow: hidden;
+  transition: height 300ms ease;
+}
 
-        .animate-fade-in {
-          animation: fade-in 0.8s ease-out forwards;
-        }
+// ============================
+// Animations Formations
+// ============================
 
-        .delay-200 {
-          animation-delay: 0.2s;
-        }
+// Mixin générique pour animation delay
+@mixin delay($time) {
+  animation-delay: $time;
+}
+
+// Animation fadeIn
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Classes d'animation
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-slide-up {
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+// Délais
+.delay-200 { @include delay(0.2s); }
+.delay-400 { @include delay(0.4s); }
+.delay-600 { @include delay(0.6s); }
+
+// ============================
+// Animations Offres (Infos & Recrutement)
+// ============================
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-offer {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+// On peut réutiliser les mêmes delays
+
   
