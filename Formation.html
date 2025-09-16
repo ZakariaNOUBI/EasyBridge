@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formations | Easy Bridge International Academy</title>
   <script src="https://cdn.tailwindcss.com"></script>
+   <script src="js/scripts.js" defer></script>
   <script>
     tailwind.config = {
       theme: { extend: { colors: { primary: '#B08E2A', secondary: '#203749', light: '#FFFFFF' } } }
     }
   </script>
+  <link rel="stylesheet" href="style/css/main.css">
 </head>
 
 <body class="font-sans text-secondary bg-light">
@@ -35,11 +37,9 @@
 
     <!-- Menu desktop -->
     <nav class="hidden md:flex space-x-6 lg:space-x-8 font-medium text-sm">
-      <a href="Actualites.html">Actualités</a>
+      <a href="index.html">Accueil</a>
       <a href="Formation.html">Nos formations</a>
-      <a href="Carrieres.html">Carrières</a>
-      <a href="Entreprises.html">Entreprises</a>
-      <a href="ContactezNous.html">Contactez-nous</a>
+      <a href="ContactezNous.html">Infos & Recrutement</a>
     </nav>
   </div>
 
@@ -48,91 +48,14 @@
        class="mobile-collapsible md:hidden bg-light border-t border-gray-200"
        style="height:0">
     <div class="flex flex-col px-6 pb-2">
-      <a href="Actualites.html" class="block py-3 hover:text-primary border-b border-gray-100">Actualités</a>
+      <a href="index.html" class="block py-3 hover:text-primary border-b border-gray-100">Actualités</a>
       <a href="Formation.html" class="block py-3 hover:text-primary border-b border-gray-100">Nos formations</a>
-      <a href="Carrieres.html" class="block py-3 hover:text-primary border-b border-gray-100">Carrières</a>
-      <a href="Entreprises.html" class="block py-3 hover:text-primary border-b border-gray-100">Entreprises</a>
-      <a href="ContactezNous.html" class="block py-3 hover:text-primary">Contactez-nous</a>
+      <a href="ContactezNous.html" class="block py-3 hover:text-primary">Infos & Recrutement</a>
     </div>
   </nav>
+
 </header>
-
-<!-- Styles -->
-<style>
-  /* Animation fluide de la hauteur (vertical slide) */
-  .mobile-collapsible {
-    overflow: hidden;
-    transition: height 300ms ease;
-  }
-</style>
-
-<!-- Script -->
-<script>
-  const btn = document.getElementById("menu-btn");
-  const menu = document.getElementById("mobile-menu");
-
-  function openMenu() {
-    // Mesurer la hauteur intérieure
-    const content = menu.firstElementChild;
-    const targetHeight = content.scrollHeight;
-    menu.style.height = targetHeight + "px";
-    btn.setAttribute("aria-expanded", "true");
-
-    // Après l'animation, fixer à 'auto' pour suivre le contenu
-    const onEnd = () => {
-      if (btn.getAttribute("aria-expanded") === "true") menu.style.height = "auto";
-      menu.removeEventListener("transitionend", onEnd);
-    };
-    menu.addEventListener("transitionend", onEnd);
-  }
-
-  function closeMenu() {
-    // Passer de auto à une valeur fixe pour animer vers 0
-    const currentHeight = menu.scrollHeight;
-    menu.style.height = currentHeight + "px";
-    // forcer le reflow
-    menu.getBoundingClientRect();
-    menu.style.height = "0px";
-    btn.setAttribute("aria-expanded", "false");
-  }
-
-  if (btn && menu) {
-    btn.addEventListener("click", () => {
-      const expanded = btn.getAttribute("aria-expanded") === "true";
-      expanded ? closeMenu() : openMenu();
-    });
-
-    // Fermer après clic sur un lien
-    menu.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => {
-        if (btn.getAttribute("aria-expanded") === "true") closeMenu();
-      });
-    });
-
-    // Réinitialiser au resize (>= md)
-    window.addEventListener("resize", () => {
-      if (window.innerWidth >= 768) {
-        menu.style.height = "auto";
-        btn.setAttribute("aria-expanded", "false");
-      } else {
-        // Replie par défaut en mobile
-        menu.style.height = "0px";
-      }
-    });
-  }
-
-  // Surbrillance du lien actif (desktop + mobile)
-  (function activeLink() {
-    let current = location.pathname.split("/").pop() || "index.html";
-    current = current.toLowerCase();
-    document.querySelectorAll("header nav a[href]").forEach(a => {
-      let target = (a.getAttribute("href") || "").split("/").pop().toLowerCase();
-      if (target === current) a.classList.add("font-semibold", "text-primary");
-    });
-  })();
-</script>
-
-
+<main> 
   <!-- Hero -->
   <section class="bg-secondary text-light py-12 text-center">
     <h2 class="text-3xl font-bold">Nos Formations</h2>
@@ -203,48 +126,6 @@
 
   </div>
 </section>
-
-<!-- Animations -->
-<style>
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .animate-fade-in {
-    animation: fadeIn 1s ease-out forwards;
-  }
-  .animate-slide-up {
-    opacity: 0;
-    animation: fadeIn 1s ease-out forwards;
-  }
-  .delay-200 { animation-delay: 0.2s; }
-  .delay-400 { animation-delay: 0.4s; }
-  .delay-600 { animation-delay: 0.6s; }
-</style>
-
-<!-- Script Filtrage -->
-<script>
-  const buttons = document.querySelectorAll(".filter-btn");
-  const cards = document.querySelectorAll(".formation-card");
-
-  buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const filter = btn.dataset.filter;
-
-      buttons.forEach(b => b.classList.remove("bg-secondary","text-white"));
-      btn.classList.add("bg-secondary","text-white");
-
-      cards.forEach(card => {
-        if (filter === "all" || card.classList.contains(filter)) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
-      });
-    });
-  });
-</script>
-
 <!-- Section 2 : Formations Professionnelles -->
 <section id="Fp"  class="bg-gray-50">
   <div class="max-w-6xl mx-auto px-6 py-12">
@@ -293,6 +174,27 @@
     </div>
   </div>
 </section>
+<!-- Section Tarifs -->
+<section id="tarifs" class="bg-white">
+  <div class="max-w-4xl mx-auto px-6 py-12 text-center">
+    <h3 class="text-3xl font-bold text-secondary mb-6 animate-fade-in">
+      💰 Tarifs des Formations
+    </h3>
+    <p class="text-gray-700 mb-6">
+      Découvrez nos frais de scolarité pour les formations supérieures. 
+      <br>
+      <span class="font-semibold text-primary">
+        ⚠️ Pour les formations professionnelles, les tarifs varient selon la nature de la formation et sa durée.
+      </span>
+    </p>
+
+    <!-- Image tarifs -->
+    <div class="shadow-lg rounded-2xl overflow-hidden inline-block">
+      <img src="img/tarifs.jpg" alt="Tarifs Easy Bridge Academy" class="w-full max-w-3xl mx-auto">
+    </div>
+  </div>
+</section>
+
 
 <!-- Section 3 : Soutien scolaire & Langues -->
 <section>
@@ -324,24 +226,8 @@
     </div>
   </div>
 </section>
+</main>
 
-<!-- Animations -->
-<style>
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .animate-fade-in {
-    animation: fadeIn 1s ease-out forwards;
-  }
-  .animate-slide-up {
-    opacity: 0;
-    animation: fadeIn 1s ease-out forwards;
-  }
-  .delay-200 { animation-delay: 0.2s; }
-  .delay-400 { animation-delay: 0.4s; }
-  .delay-600 { animation-delay: 0.6s; }
-</style>
 
 
 

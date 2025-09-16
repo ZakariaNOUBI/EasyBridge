@@ -89,20 +89,7 @@
     © 2025 Easy Bridge International Academy. Tous droits réservés.
   </footer>
 
-  <!-- Script -->
-  <script>
-    const btn = document.getElementById("menu-btn");
-    const menu = document.getElementById("mobile-menu");
-    if (btn && menu) btn.addEventListener("click", () => menu.classList.toggle("hidden"));
-    (function activeLink() {
-      let current = location.pathname.split("/").pop() || "index.html";
-      current = current.toLowerCase();
-      document.querySelectorAll("header nav a[href]").forEach(a => {
-        let target = (a.getAttribute("href") || "").split("/").pop().toLowerCase();
-        if (target === current) a.classList.add("font-semibold", "text-primary");
-      });
-    })();
-  </script>
+
 </body>
 
 </html>

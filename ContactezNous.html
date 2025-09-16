@@ -8,6 +8,7 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/scripts.js" defer></script>
 
   <script>
     tailwind.config = {
@@ -23,25 +24,24 @@
       }
     }
   </script>
+  <link rel="stylesheet" href="style/css/main.css">
 </head>
 
 <body class="font-sans text-secondary bg-light">
 
-  <!-- Navbar -->
   <header class="bg-light shadow sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 md:px-10 py-4 flex justify-between items-center">
       <!-- Logo -->
       <div class="flex items-center space-x-3">
-              <a href="index.html"> <img src="img/logo.jpg" alt="Logo EasyBridge" class="h-10"></a>
+        <a href="index.html"><img src="img/logo.jpg" alt="Logo EasyBridge" class="h-10"></a>
         <div class="leading-tight">
           <h1 class="font-bold text-sm text-secondary">Easy Bridge</h1>
           <p class="text-xs text-gray-600">International Academy</p>
         </div>
       </div>
 
-      <!-- Hamburger -->
-      <button id="menu-btn" class="md:hidden flex flex-col space-y-1.5">
-        <span class="block w-6 h-0.5 bg-secondary"></span>
+      <!-- Bouton menu mobile -->
+      <button id="menu-btn" class="md:hidden flex flex-col space-y-1.5" aria-label="Menu" aria-expanded="false">
         <span class="block w-6 h-0.5 bg-secondary"></span>
         <span class="block w-6 h-0.5 bg-secondary"></span>
         <span class="block w-6 h-0.5 bg-secondary"></span>
@@ -49,95 +49,191 @@
 
       <!-- Menu desktop -->
       <nav class="hidden md:flex space-x-6 lg:space-x-8 font-medium text-sm">
-        <a href="Actualites.html">Actualités</a>
+        <a href="index.html">Accueil</a>
         <a href="Formation.html">Nos formations</a>
-        <a href="Carrieres.html">Carrières</a>
-        <a href="Entreprises.html">Entreprises</a>
-        <a href="ContactezNous.html" class="font-semibold text-primary">Contactez-nous</a>
+        <a href="ContactezNous.html" class="font-semibold text-primary">Infos & Recrutement</a>
       </nav>
     </div>
 
-    <!-- Menu mobile -->
-    <nav id="mobile-menu" class="hidden flex-col space-y-2 px-6 pb-4 md:hidden bg-light shadow">
-       <a href="Actualites.html">Actualités</a>
-        <a href="Formation.html">Nos formations</a>
-        <a href="Carrieres.html">Carrières</a>
-        <a href="Entreprises.html">Entreprises</a>
-        <a href="ContactezNous.html" class="font-semibold text-primary">Contactez-nous</a>
+    <!-- Menu mobile (dépliage vertical) -->
+    <nav id="mobile-menu" class="mobile-collapsible md:hidden bg-light border-t border-gray-200" style="height:0">
+      <div class="flex flex-col px-6 pb-2">
+        <a href="index.html" class="block py-3 hover:text-primary border-b border-gray-100">Actualités</a>
+        <a href="Formation.html" class="block py-3 hover:text-primary border-b border-gray-100">Nos formations</a>
+        <a href="ContactezNous.html" class="block py-3 hover:text-primary">Infos & Recrutement </a>
+      </div>
     </nav>
+
   </header>
+  <main>
 
-  <!-- Bloc Adresse -->
-  <section class="bg-secondary text-light py-6 px-6 text-center">
-    <h3 class="text-lg font-semibold mb-2">📍 Adresse</h3>
-    <p class="text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-      شارع الأميرة لالة عائشة إقامة ملاك الرحمة الطابق 3 <br>
-      (أمام ONE، بجانب مقهى La Lune) <br>
-      26000 Settat, Morocco
-    </p>
-  </section>
 
-  <!-- Section Carte + Formulaire -->
-  <main class="relative w-full h-[80vh]">
-    <!-- Google Map -->
-    <iframe class="absolute inset-0 w-full h-full" frameborder="0"
-      src="https://www.google.com/maps?q=شارع الأميرة لالة عائشة إقامة ملاك الرحمة الطابق 3, Settat, Morocco&output=embed"
-      allowfullscreen></iframe>
 
-    <!-- Overlay sombre -->
-    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
 
-    <!-- Formulaire centré -->
-    <div class="relative z-10 flex justify-center items-center h-full px-4">
-      <div class="w-full sm:w-[28rem] bg-light shadow-lg rounded-2xl p-6 sm:p-8 backdrop-blur">
-        <h2 class="text-xl font-bold text-secondary mb-6 text-center">Envoyez-nous un message</h2>
-        <form action="#" method="POST" class="space-y-4">
-          <div>
-            <label for="name" class="block text-sm font-medium text-secondary">Nom complet</label>
-            <input type="text" id="name" name="name" required
-              class="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-primary">
+    <!-- Section Hero -->
+    <section class="bg-secondary text-light py-12 text-center">
+      <h2 class="text-3xl font-bold">Rejoignez notre équipe</h2>
+      <p class="mt-2">Rejoignez une communauté engagée et passionnée.</p>
+    </section>
+
+    <!-- Section Annonces + Formulaire -->
+    <section class="bg-light py-12 px-6">
+      <div class="max-w-6xl mx-auto">
+
+        <!-- Annonces -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div
+            class="bg-secondary text-light p-6 rounded-lg shadow-lg opacity-0 translate-y-6 animate-fade-in hover:scale-105 transition-transform duration-300">
+            <h3 class="font-semibold text-lg mb-2">Offre 1 : Enseignant(e) EPS</h3>
+            <p>Poste à temps plein, 1er cycle du primaire, Settat</p>
           </div>
-          <div>
-            <label for="email" class="block text-sm font-medium text-secondary">Adresse email</label>
-            <input type="email" id="email" name="email" required
-              class="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-primary">
+          <div
+            class="bg-secondary text-light p-6 rounded-lg shadow-lg opacity-0 translate-y-6 animate-fade-in delay-200 hover:scale-105 transition-transform duration-300">
+            <h3 class="font-semibold text-lg mb-2">Offre 2 : Assistant(e) administratif</h3>
+            <p>Poste à temps partiel, bureau principal, Settat</p>
           </div>
-          <div>
-            <label for="message" class="block text-sm font-medium text-secondary">Message</label>
-            <textarea id="message" name="message" rows="4" required
-              class="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
-          </div>
-          <button type="submit"
-            class="w-full bg-primary text-light font-semibold py-2 px-4 rounded-lg hover:bg-secondary transition text-sm sm:text-base">
-            Envoyer
-          </button>
-        </form>
+        </div>
 
-        <!-- WhatsApp -->
-        <div class="mt-6">
-          <a href="https://wa.me/212721936380" target="_blank"
-            class="flex items-center justify-center space-x-2 w-full bg-whatsapp text-light font-semibold py-3 px-4 rounded-lg hover:opacity-90 transition text-sm sm:text-base">
-            <span>💬</span>
-            <span>Contacter via WhatsApp</span>
-          </a>
+
+
+
+        <!-- Formulaire Postuler -->
+        <div class="max-w-md mx-auto bg-light p-6 rounded-2xl shadow-lg">
+          <h3 class="text-xl font-bold text-secondary mb-6 text-center">Postulez maintenant</h3>
+          <form action="candidature.php" method="POST" enctype="multipart/form-data" class="space-y-4">
+            <input type="text" name="cand_name" placeholder="Nom complet" required
+              class="block w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+            <input type="email" name="cand_email" placeholder="Email" required
+              class="block w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+            <input type="tel" name="cand_phone" placeholder="Téléphone"
+              class="block w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+            <input type="file" name="cand_cv" required class="block w-full text-sm focus:outline-none">
+            <textarea name="cand_message" rows="3" placeholder="Votre message ou motivation"
+              class="block w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+            <button type="submit"
+              class="w-full bg-primary text-light font-semibold py-2 px-4 rounded-lg hover:bg-secondary transition">
+              Postuler
+            </button>
+          </form>
         </div>
       </div>
-    </div>
-  </main>
+    </section>
 
+    <!-- Bloc Adresse -->
+    <section class="bg-secondary text-light py-6 px-6 text-center">
+      <h3 class="text-lg font-semibold mb-2">📍 Adresse</h3>
+      <p class="text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+        Rue Princesse Lalla Aïcha, Résidence Malak Arrahma, 3ᵉ étage<br>
+        (En face de l’ONE, à côté du café La Lune)<br>
+        26000 Settat, Maroc
+      </p>
+    </section>
+
+    <!-- Section Carte + Formulaire -->
+    <main class="relative w-full h-[80vh]">
+      <!-- Google Map -->
+      <iframe class="absolute inset-0 w-full h-full" frameborder="0"
+        src="https://www.google.com/maps?q=شارع الأميرة لالة عائشة إقامة ملاك الرحمة الطابق 3, Settat, Morocco&output=embed"
+        allowfullscreen></iframe>
+
+      <!-- Overlay sombre -->
+      <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+
+      <!-- Formulaire centré -->
+      <div class="relative z-10 flex justify-center items-center h-full px-4">
+        <div class="w-full sm:w-[28rem] bg-light shadow-lg rounded-2xl p-6 sm:p-8 backdrop-blur">
+          <h2 class="text-xl font-bold text-secondary mb-6 text-center">Envoyez-nous un message</h2>
+          <form action="#" method="POST" class="space-y-4">
+            <div>
+              <label for="name" class="block text-sm font-medium text-secondary">Nom complet</label>
+              <input type="text" id="name" name="name" required
+                class="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-primary">
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-secondary">Adresse email</label>
+              <input type="email" id="email" name="email" required
+                class="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-primary">
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-secondary">Message</label>
+              <textarea id="message" name="message" rows="4" required
+                class="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+            </div>
+            <button type="submit"
+              class="w-full bg-primary text-light font-semibold py-2 px-4 rounded-lg hover:bg-secondary transition text-sm sm:text-base">
+              Envoyer
+            </button>
+          </form>
+
+          <!-- WhatsApp -->
+          <div class="mt-6">
+            <a href="https://wa.me/212721936380" target="_blank"
+              class="flex items-center justify-center space-x-2 w-full bg-whatsapp text-light font-semibold py-3 px-4 rounded-lg hover:opacity-90 transition text-sm sm:text-base">
+              <span>💬</span>
+              <span>Contacter via WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main> <!-- ✅ Fermeture du main ici -->
+
+    <!-- Section Horaires -->
+    <section class="bg-light py-10 px-6 text-center">
+      <h3 class="text-lg font-semibold text-secondary mb-4">🕒 Horaires</h3>
+      <p class="text-sm sm:text-base">Lundi - Vendredi : 9h00 - 18h00</p>
+      <p class="text-sm sm:text-base">Samedi : 9h00 - 13h00</p>
+      <p class="text-sm sm:text-base text-gray-500">Dimanche : fermé</p>
+    </section>
+
+    <!-- Section Contacts -->
+    <section class="bg-gray-100 py-10 px-6">
+      <h3 class="text-lg font-semibold text-center text-secondary mb-6">📞 Contacts directs</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="bg-light shadow rounded-lg p-4 text-center">
+          <h4 class="font-semibold">Direction</h4>
+          <p class="text-sm text-gray-600">+212 6 12 34 56 78</p>
+          <p class="text-sm text-gray-600">direction@easybridge.ma</p>
+        </div>
+        <div class="bg-light shadow rounded-lg p-4 text-center">
+          <h4 class="font-semibold">Secrétariat</h4>
+          <p class="text-sm text-gray-600">+212 6 98 76 54 32</p>
+          <p class="text-sm text-gray-600">secretariat@easybridge.ma</p>
+        </div>
+        <div class="bg-light shadow rounded-lg p-4 text-center">
+          <h4 class="font-semibold">Inscriptions</h4>
+          <p class="text-sm text-gray-600">+212 7 21 93 63 80</p>
+          <p class="text-sm text-gray-600">inscription@easybridge.ma</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section FAQ -->
+    <section class="bg-secondary text-light py-10 px-6">
+      <h3 class="text-lg font-semibold text-center mb-6">❓ Questions fréquentes</h3>
+      <div class="max-w-3xl mx-auto space-y-4 text-sm sm:text-base">
+        <details class="bg-light text-secondary rounded-lg p-4">
+          <summary class="font-semibold cursor-pointer">Comment m’inscrire à une formation ?</summary>
+          <p class="mt-2 text-gray-700">Vous pouvez remplir le formulaire en ligne sur la page Inscriptions ou passer
+            directement à l’académie.</p>
+        </details>
+        <details class="bg-light text-secondary rounded-lg p-4">
+          <summary class="font-semibold cursor-pointer">Quels sont les frais de formation ?</summary>
+          <p class="mt-2 text-gray-700">Les frais varient selon la formation choisie. Contactez le secrétariat pour un
+            devis personnalisé.</p>
+        </details>
+        <details class="bg-light text-secondary rounded-lg p-4">
+          <summary class="font-semibold cursor-pointer">Proposez-vous des formations en ligne ?</summary>
+          <p class="mt-2 text-gray-700">Oui, plusieurs programmes sont disponibles en mode hybride ou 100% à distance.
+          </p>
+        </details>
+      </div>
+    </section>
+  </main>
   <!-- Footer -->
   <footer class="bg-secondary text-light py-4 text-center text-xs sm:text-sm">
     © 2025 Easy Bridge International Academy. Tous droits réservés.
   </footer>
 
-  <!-- Script menu -->
-  <script>
-    const btn = document.getElementById("menu-btn");
-    const menu = document.getElementById("mobile-menu");
-    btn.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
-    });
-  </script>
-
 </body>
+
 </html>
