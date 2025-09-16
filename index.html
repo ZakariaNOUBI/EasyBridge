@@ -27,8 +27,7 @@
 </head>
 
 <body class="font-sans text-secondary bg-light">
-
-  <!-- Navbar -->
+  <!-- Header -->
   <header class="bg-light shadow sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 md:px-10 py-4 flex justify-between items-center">
       <div class="flex items-center space-x-3">
@@ -38,27 +37,44 @@
           <p class="text-xs text-gray-600">International Academy</p>
         </div>
       </div>
-      <button id="menu-btn" class="md:hidden flex flex-col space-y-1.5" aria-label="Menu">
+
+      <!-- Bouton menu mobile -->
+      <button id="menu-btn" class="md:hidden flex flex-col space-y-1.5" aria-label="Menu" aria-expanded="false">
         <span class="block w-6 h-0.5 bg-secondary"></span>
         <span class="block w-6 h-0.5 bg-secondary"></span>
         <span class="block w-6 h-0.5 bg-secondary"></span>
       </button>
+
+      <!-- Menu desktop -->
       <nav class="hidden md:flex space-x-6 lg:space-x-8 font-medium text-sm">
-      <a href="Actualites.html">Actualités</a>
+        <a href="index.html">Accueil</a>
         <a href="Formation.html">Nos formations</a>
-        <a href="Carrieres.html">Carrières</a>
-        <a href="Entreprises.html">Entreprises</a>
-        <a href="ContactezNous.html">Contactez-nous</a>
+        <a href="ContactezNous.html">Infos & Recrutement</a>
       </nav>
     </div>
-    <nav id="mobile-menu" class="hidden flex-col space-y-2 px-6 pb-4 md:hidden bg-light shadow">
-   <a href="Actualites.html">Actualités</a>
-        <a href="Formation.html">Nos formations</a>
-        <a href="Carrieres.html">Carrières</a>
-        <a href="Entreprises.html">Entreprises</a>
-        <a href="ContactezNous.html">Contactez-nous</a>
+
+    <!-- Menu mobile (dépliage vertical) -->
+    <nav id="mobile-menu" class="mobile-collapsible md:hidden bg-light border-t border-gray-200" style="height:0">
+      <div class="flex flex-col px-6 pb-2">
+        <a href="index.html" class="block py-3 hover:text-primary border-b border-gold-100">Actualités</a>
+        <a href="Formation.html" class="block py-3 hover:text-primary border-b border-gold-100">Nos formations</a>
+        <a href="ContactezNous.html" class="block py-3 hover:text-primary">Infos & Recrutement</a>
+      </div>
     </nav>
   </header>
+
+  <!-- Styles -->
+  <style>
+    /* Animation fluide de la hauteur (vertical slide) */
+    .mobile-collapsible {
+      overflow: hidden;
+      transition: height 300ms ease;
+    }
+  </style>
+
+  <!-- Script -->
+
+
 
   <!-- Hero -->
   <section class="relative bg-secondary text-light">
@@ -124,7 +140,8 @@
         <img src="img/Atelier.jpg" alt="Nouvelle 2" class="h-40 w-full object-cover">
         <div class="p-4">
           <h4 class="font-bold mb-2">Nouvel atelier créatif</h4>
-          <p class="text-gray-700 text-sm">Easy Bridge propose un atelier de cake design pour découvrir l’art de décorer des gâteaux avec créativité.</p>
+          <p class="text-gray-700 text-sm">Easy Bridge propose un atelier de cake design pour découvrir l’art de décorer
+            des gâteaux avec créativité.</p>
         </div>
       </div>
       <div class="bg-light shadow rounded-xl overflow-hidden">
@@ -165,13 +182,7 @@
   </footer>
 
   <!-- Script menu -->
-  <script>
-    const btn = document.getElementById("menu-btn");
-    const menu = document.getElementById("mobile-menu");
-    btn.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
-    });
-  </script>
+
 </body>
 
 </html>
