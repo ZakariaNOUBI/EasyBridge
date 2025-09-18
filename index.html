@@ -30,52 +30,65 @@
 <body class="font-sans text-secondary bg-light">
 
   <!-- Navbar -->
-  <header class="bg-light shadow sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 md:px-10 py-4 flex justify-between items-center">
-      <!-- Logo -->
-      <div class="flex items-center space-x-3">
-        <a href="index.html"><img src="img/logo.jpg" alt="Logo EasyBridge" class="h-10"></a>
-        <div class="leading-tight">
-          <h1 class="font-bold text-sm text-secondary">Easy Bridge</h1>
-          <p class="text-xs text-gray-600">International Academy</p>
-        </div>
+<header class="bg-light shadow sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 py-4 flex justify-between items-center">
+    <!-- Logo -->
+    <div class="flex items-center space-x-3">
+      <a href="index.html"><img src="img/logo.jpg" alt="Logo EasyBridge" class="h-10"></a>
+      <div class="leading-tight">
+        <h1 class="font-bold text-sm text-secondary">Easy Bridge</h1>
+        <p class="text-xs text-gray-600">International Academy</p>
       </div>
-
-      <!-- Bouton menu mobile -->
-      <button id="menu-btn" class="md:hidden flex flex-col space-y-1.5" aria-label="Menu" aria-expanded="false">
-        <span class="block w-6 h-0.5 bg-secondary"></span>
-        <span class="block w-6 h-0.5 bg-secondary"></span>
-        <span class="block w-6 h-0.5 bg-secondary"></span>
-      </button>
-
-      <!-- Menu desktop -->
-    
-<nav class="hidden md:flex space-x-6 lg:space-x-8 font-medium text-sm items-center">
-  <a href="index.html">Accueil</a>
-  <a href="Formation.html">Nos formations</a>
-  <a href="ContactezNous.html">Infos & Recrutement</a>
-  <!-- Bouton inscription -->
-  <a href="Inscription.html" class="ml-4 bg-primary text-light px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600">
-    Inscription
-  </a>
-</nav>
-
     </div>
 
-    <!-- Menu mobile (dépliage vertical) -->
-<nav id="mobile-menu" class="mobile-collapsible md:hidden bg-light border-t border-gray-200" style="height:0">
-  <div class="flex flex-col px-6 pb-2">
-    <a href="index.html" class="block py-3 hover:text-primary border-b border-gold-100">Accueil</a>
-    <a href="Formation.html" class="block py-3 hover:text-primary border-b border-gold-100">Nos formations</a>
-    <a href="ContactezNous.html" class="block py-3 hover:text-primary border-b border-gold-100">Infos & Recrutement</a>
-    <!-- Bouton inscription -->
-    <a href="Inscription.html" class="block mt-3 bg-primary text-light text-center px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600">
-      Inscription
-    </a>
-  </div>
-</nav>
+    <!-- Bouton menu mobile -->
+    <button id="menu-btn" class="md:hidden flex flex-col space-y-1.5" aria-label="Menu" aria-expanded="false">
+      <span class="block w-6 h-0.5 bg-secondary"></span>
+      <span class="block w-6 h-0.5 bg-secondary"></span>
+      <span class="block w-6 h-0.5 bg-secondary"></span>
+    </button>
 
-  </header>
+    <!-- Menu desktop -->
+    <nav class="hidden md:flex space-x-6 lg:space-x-8 font-medium text-sm items-center">
+      <a href="index.html">Accueil</a>
+      <a href="Formation.html">Nos formations</a>
+      <a href="ContactezNous.html">Infos & Recrutement</a>
+
+      <!-- Bouton inscription -->
+      <a href="Inscription.html" class="bg-primary text-light px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600">
+        Inscription
+      </a>
+
+      <!-- Bouton installation PWA (dans la nav) -->
+      <button id="installBtn" class="bg-secondary text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-700 hidden">
+        📲 Installer
+      </button>
+    </nav>
+  </div>
+
+  <!-- Menu mobile -->
+  <nav id="mobile-menu" class="mobile-collapsible md:hidden bg-light border-t border-gray-200" style="height:0">
+    <div class="flex flex-col px-6 pb-2">
+      <a href="index.html" class="block py-3 hover:text-primary border-b border-gold-100">Accueil</a>
+      <a href="Formation.html" class="block py-3 hover:text-primary border-b border-gold-100">Nos formations</a>
+      <a href="ContactezNous.html" class="block py-3 hover:text-primary border-b border-gold-100">Infos & Recrutement</a>
+      
+      <!-- Bouton inscription -->
+      <a href="Inscription.html" class="block mt-3 bg-primary text-light text-center px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600">
+        Inscription
+      </a>
+
+      <!-- Bouton installation PWA mobile -->
+      <button id="installBtnMobile" class="block mt-3 bg-secondary text-white text-center px-4 py-2 rounded-lg font-semibold hover:bg-gray-700 hidden">
+        📲 Installer
+      </button>
+    </div>
+  </nav>
+</header>
+
+
+
+
   <main>
 
 
