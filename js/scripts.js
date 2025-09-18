@@ -98,3 +98,31 @@ if (btn && menu) {
     });
   });
 
+
+  // PWA 
+
+  let deferredPrompt;
+  const installBtn = document.getElementById("installBtn");
+  const installBtnMobile = document.getElementById("installBtnMobile");
+
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (installBtn) installBtn.classList.remove("hidden");
+    if (installBtnMobile) installBtnMobile.classList.remove("hidden");
+  });
+
+  function handleInstall(e, button) {
+    e.preventDefault(); // empêche le rechargement du lien
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        console.log("Résultat installation :", choiceResult.outcome);
+        deferredPrompt = null;
+        button.classList.add("hidden");
+      });
+    }
+  }
+
+  if (installBtn) installBtn.addEventListener("click", (e) => handleInstall(e, installBtn));
+  if (installBtnMobile) installBtnMobile.addEventListener("click", (e) => handleInstall(e, installBtnMobile));
