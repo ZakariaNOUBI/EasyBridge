@@ -75,165 +75,129 @@ if (btn && menu) {
   });
 })();
 
-// validation du formulaire d'inscription
+// validation du formulaire envoyer un message
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
 
-    form.addEventListener("submit", function (e) {
-      e.preventDefault(); // Empêche l'envoi du formulaire par défaut
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form[action="#"]');
+    if (!form) return;
 
-      let isValid = true;
-      let messages = [];
+    form.addEventListener('submit', function (e) {
+      let valid = true;
 
-      const prenom = document.getElementById("prenom");
-      const nom = document.querySelectorAll("#nom")[1]; // car 2 inputs ont le même id (voir note plus bas)
-      const email = document.getElementById("email");
-      const tel = document.getElementById("telephone");
-      const typeFormation = document.querySelectorAll("#typeFormation")[1]; // éviter id en double
-      const pole = document.getElementById("pole");
-      const programme = document.getElementById("programme");
+      // Réinitialise les erreurs précédentes
+      form.querySelectorAll('.error-msg').forEach(el => el.remove());
 
-      // Validation du prénom
-      if (prenom.value.trim() === "") {
-        isValid = false;
-        messages.push("Le prénom est requis.");
+      const name = form.querySelector('input[name="cand_name"]');
+      const email = form.querySelector('input[name="email"]');
+      const message = form.querySelector('textarea[name="message"]');
+
+      // Validation nom
+      if (!name.value.trim()) {
+        showError(name, "Le nom est requis.");
+        valid = false;
       }
 
-      // Validation du nom
-      if (nom.value.trim() === "") {
-        isValid = false;
-        messages.push("Le nom de famille est requis.");
+      // Validation email
+      if (!validateEmail(email.value)) {
+        showError(email, "Adresse email invalide.");
+        valid = false;
+      }
+
+      // Validation message
+      if (message.value.trim().length < 10) {
+        showError(message, "Le message doit contenir au moins 10 caractères.");
+        valid = false;
+      }
+
+      if (!valid) {
+        e.preventDefault(); // Empêche l'envoi
+      }
+    });
+
+    function showError(input, message) {
+      const error = document.createElement("p");
+      error.className = "error-msg text-sm text-red-600 mt-1";
+      error.innerText = message;
+      input.insertAdjacentElement("afterend", error);
+    }
+
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.toLowerCase());
+    }
+  });
+
+// validation postuler
+  document.addEventListener('DOMContentLoaded', () => {
+    const formPostuler = document.querySelector('form[action="candidature.php"]');
+    if (!formPostuler) return;
+
+    formPostuler.addEventListener('submit', function (e) {
+      let valid = true;
+
+      // Supprimer les anciens messages d'erreur
+      formPostuler.querySelectorAll('.error-msg').forEach(el => el.remove());
+
+      const name = formPostuler.querySelector('#cand_name');
+      const email = formPostuler.querySelector('#cand_email');
+      const phone = formPostuler.querySelector('#cand_tel');
+      const cv = formPostuler.querySelector('#cand_cv');
+      const message = formPostuler.querySelector('[name="cand_message"]');
+
+      // Nom
+      if (!name.value.trim()) {
+        showError(name, "Le nom est requis.");
+        valid = false;
       }
 
       // Email
-      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)) {
-        isValid = false;
-        messages.push("Adresse email invalide.");
+      if (!validateEmail(email.value)) {
+        showError(email, "Adresse email invalide.");
+        valid = false;
       }
 
-      // Téléphone
-      if (!/^\d{10,15}$/.test(tel.value.trim())) {
-        isValid = false;
-        messages.push("Numéro de téléphone invalide.");
+      // Téléphone (facultatif, mais si présent : vérifier format)
+      if (phone.value && !/^\+?\d{6,15}$/.test(phone.value)) {
+        showError(phone, "Numéro de téléphone invalide.");
+        valid = false;
       }
 
-      // Sélection type de formation
-      if (typeFormation.value === "") {
-        isValid = false;
-        messages.push("Le type de formation est requis.");
-      }
-
-      // Pôle
-      if (pole.value === "") {
-        isValid = false;
-        messages.push("Le pôle est requis.");
-      }
-
-      // Programme
-      if (programme.value === "") {
-        isValid = false;
-        messages.push("Le programme est requis.");
-      }
-
-      if (isValid) {
-        form.submit(); // soumission manuelle si tout est OK
+      // CV : fichier requis
+      if (!cv.value) {
+        showError(cv, "Veuillez joindre votre CV.");
+        valid = false;
       } else {
-        alert(messages.join("\n"));
+        const fileName = cv.value.toLowerCase();
+        if (!fileName.endsWith(".pdf") && !fileName.endsWith(".doc") && !fileName.endsWith(".docx")) {
+          showError(cv, "Format du CV non supporté. PDF, DOC, DOCX uniquement.");
+          valid = false;
+        }
+      }
+
+      // Message (facultatif mais min. 10 caractères si présent)
+      if (message.value.trim() && message.value.trim().length < 10) {
+        showError(message, "Le message doit contenir au moins 10 caractères.");
+        valid = false;
+      }
+
+      if (!valid) {
+        e.preventDefault(); // Annuler l'envoi
       }
     });
+
+    function showError(input, message) {
+      const error = document.createElement("p");
+      error.className = "error-msg text-sm text-red-600 mt-1";
+      error.innerText = message;
+      input.insertAdjacentElement("afterend", error);
+    }
+
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.toLowerCase());
+    }
   });
 
 
-    // Données programmes
-    const formations = {
-      superieure: {
-        "Pôle Gestion": [
-          "Bachelor en Management des PME",
-          "Master en Management des PME",
-          "Bachelor en Management des RH",
-          "Master en Management des RH"
-        ],
-        "Pôle Informatique": [
-          "Bachelor en Systèmes et Réseaux Informatiques",
-          "Master en Systèmes et Réseaux Informatiques",
-          "Bachelor en Développement Logiciel",
-          "Master en Développement Logiciel"
-        ],
-        "Pôle Génie appliqué": [
-          "Bachelor en Efficacité énergétique",
-          "Master en Efficacité Énergétique",
-          "Bachelor en Génie climatique et froid",
-          "Master en Génie climatique et froid"
-        ],
-        "Pôle Logistique": [
-          "Bachelor en Logistique et transports",
-          "Master en Logistique et transports",
-          "Bachelor en Génie Civil et Construction",
-          "Master en Génie Civil et Construction"
-        ]
-      },
-      professionnelle: {
-        "Formations courtes": [
-          "Initiation à l’informatique",
-          "Techniques de communication",
-          "Gestion de projet agile"
-        ],
-        "Certificats professionnels": [
-          "Comptabilité",
-          "Marketing digital",
-          "Langues (Anglais / Français)"
-        ],
-        "Formations techniques": [
-          "Électricité et maintenance",
-          "Réseaux et cybersécurité",
-          "Design et infographie"
-        ],
-        "Programmes sur mesure": [
-          "Leadership",
-          "Développement d’équipe",
-          "Gestion de crise"
-        ]
-      }
-    };
-
-    // Charger dynamiquement les pôles et programmes
-    function updatePoles() {
-      const typeFormation = document.getElementById("typeFormation").value;
-      const poleSelect = document.getElementById("pole");
-      const programmeSelect = document.getElementById("programme");
-
-      // Réinitialiser
-      poleSelect.innerHTML = '<option value="">-- Sélectionnez un pôle --</option>';
-      programmeSelect.innerHTML = '<option value="">-- Sélectionnez un programme --</option>';
-
-      if (typeFormation && formations[typeFormation]) {
-        Object.keys(formations[typeFormation]).forEach(pole => {
-          let opt = document.createElement("option");
-          opt.value = pole;
-          opt.textContent = pole;
-          poleSelect.appendChild(opt);
-        });
-      }
-    }
-
-    function updateProgrammes() {
-      const typeFormation = document.getElementById("typeFormation").value;
-      const pole = document.getElementById("pole").value;
-      const programmeSelect = document.getElementById("programme");
-
-      // Réinitialiser
-      programmeSelect.innerHTML = '<option value="">-- Sélectionnez un programme --</option>';
-
-      if (typeFormation && pole && formations[typeFormation][pole]) {
-        formations[typeFormation][pole].forEach(prog => {
-          let opt = document.createElement("option");
-          opt.value = prog;
-          opt.textContent = prog;
-          programmeSelect.appendChild(opt);
-        });
-      }
-    }
 
 //<!-- Script Filtrage  de formation-->
 

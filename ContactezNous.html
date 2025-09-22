@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Easy Bridge International Academy - Offrant des formations professionnelles et supérieures pour un avenir réussi." />
+    content="Easy Bridge International Academy - Offrant des formations professionnelles et supérieures pour un avenir réussi.">
   <title>Contactez-nous | Easy Bridge International Academy</title>
 
   <!-- Tailwind CSS -->
@@ -34,7 +34,7 @@
       </button>
 
       <!-- Menu desktop -->
-      <nav class="hidden md:flex space-x-6 lg:space-x-8 font-medium text-sm items-center" role="navigation"
+      <nav class="hidden md:flex space-x-6 lg:space-x-8 font-medium text-sm items-center"
         aria-label="Menu principal">
         <a href="index.html">Accueil</a>
         <a href="Formation.html">Nos formations</a>
@@ -102,7 +102,7 @@
         <!-- Formulaire Postuler -->
         <div class="max-w-md mx-auto bg-light p-6 rounded-2xl shadow-lg">
           <h3 class="text-xl font-bold text-secondary mb-6 text-center">Postulez maintenant</h3>
-          <form action="candidature.php" method="POST" enctype="multipart/form-data" class="space-y-4">
+          <form action="candidature.php" method="POST" enctype="multipart/form-data" class="space-y-4" novalidate>
             <label for="cand_name"
               class="block w-full rounded-lg  px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary">Nom complet</label>
             <input id="cand_name" name="cand_name" placeholder="Nom complet" required
@@ -142,10 +142,11 @@
     </section>
 
     <!-- Section Carte + Formulaire -->
-    <main class="relative w-full h-[80vh]">
+    <section class="relative w-full h-[80vh]">
       <!-- Google Map -->
-      <iframe title="l'adresse de l'école" class="absolute inset-0 w-full h-full" frameborder="0"
-        src="https://www.google.com/maps?q=شارع الأميرة لالة عائشة إقامة ملاك الرحمة الطابق 3, Settat, Morocco&output=embed"
+      <iframe title="l'adresse de l'école" class="absolute border-0 w-full h-full" 
+        src="https://www.google.com/maps?q=%D8%B4%D8%A7%D8%B1%D8%B9%20%D8%A7%D9%84%D8%A3%D9%85%D9%8A%D8%B1%D8%A9%20%D9%84%D8%A7%D9%84%D8%A9%20%D8%B9%D8%A7%D8%A6%D8%B4%D8%A9%20%D8%A5%D9%82%D8%A7%D9%85%D8%A9%20%D9%85%D9%84%D8%A7%D9%83%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D8%A9%20%D8%A7%D9%84%D8%B7%D8%A7%D8%A8%D9%82%203,%20Settat,%20Morocco&output=embed"
+
         allowfullscreen></iframe>
 
       <!-- Overlay sombre -->
@@ -155,10 +156,10 @@
       <div class="relative z-10 flex justify-center items-center h-full px-4">
         <div class="w-full sm:w-[28rem] bg-light shadow-lg rounded-2xl p-6 sm:p-8 backdrop-blur">
           <h2 class="text-xl font-bold text-secondary mb-6 text-center">Envoyez-nous un message</h2>
-          <form action="#" method="POST" class="space-y-4">
+          <form action="#" method="POST" class="space-y-4" novalidate>
             <div>
-              <label for="cand_name" class="block text-sm font-medium text-secondary">Nom complet</label>
-              <input id="cand_name" type="text" name="cand_name" placeholder="Nom complet"
+              <label for="cand_name_mape" class="block text-sm font-medium text-secondary">Nom complet</label>
+              <input id="cand_name_mape" type="text" name="cand_name" placeholder="Nom complet"
                 class="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-primary"
                 required>
             </div>
@@ -188,7 +189,7 @@
           </div>
         </div>
       </div>
-    </main> <!-- ✅ Fermeture du main ici -->
+    </section> <!-- ✅ Fermeture du section ici -->
 
     <!-- Section Horaires -->
     <section class="bg-light py-10 px-6 text-center">

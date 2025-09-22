@@ -64,4 +64,9 @@
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
-
+/* classe d'erreur pour contactez-nous*/
+.error-msg {
+  font-size: 0.875rem;
+  color: #dc2626; /* Rouge (tailwind text-red-600) */
+  margin-top: 0.25rem;
+}
