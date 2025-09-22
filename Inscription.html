@@ -8,116 +8,16 @@
   <link rel="stylesheet" href="style/css/style.css">
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/btnMenu.js" defer></script>
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#B08E2A',
-            secondary: '#203749',
-            light: '#FFFFFF',
-            whatsapp: '#25D366',
-          }
-        }
-      }
-    }
 
-    // Données programmes
-    const formations = {
-      superieure: {
-        "Pôle Gestion": [
-          "Bachelor en Management des PME",
-          "Master en Management des PME",
-          "Bachelor en Management des RH",
-          "Master en Management des RH"
-        ],
-        "Pôle Informatique": [
-          "Bachelor en Systèmes et Réseaux Informatiques",
-          "Master en Systèmes et Réseaux Informatiques",
-          "Bachelor en Développement Logiciel",
-          "Master en Développement Logiciel"
-        ],
-        "Pôle Génie appliqué": [
-          "Bachelor en Efficacité énergétique",
-          "Master en Efficacité Énergétique",
-          "Bachelor en Génie climatique et froid",
-          "Master en Génie climatique et froid"
-        ],
-        "Pôle Logistique": [
-          "Bachelor en Logistique et transports",
-          "Master en Logistique et transports",
-          "Bachelor en Génie Civil et Construction",
-          "Master en Génie Civil et Construction"
-        ]
-      },
-      professionnelle: {
-        "Formations courtes": [
-          "Initiation à l’informatique",
-          "Techniques de communication",
-          "Gestion de projet agile"
-        ],
-        "Certificats professionnels": [
-          "Comptabilité",
-          "Marketing digital",
-          "Langues (Anglais / Français)"
-        ],
-        "Formations techniques": [
-          "Électricité et maintenance",
-          "Réseaux et cybersécurité",
-          "Design et infographie"
-        ],
-        "Programmes sur mesure": [
-          "Leadership",
-          "Développement d’équipe",
-          "Gestion de crise"
-        ]
-      }
-    };
 
-    // Charger dynamiquement les pôles et programmes
-    function updatePoles() {
-      const typeFormation = document.getElementById("typeFormation").value;
-      const poleSelect = document.getElementById("pole");
-      const programmeSelect = document.getElementById("programme");
 
-      // Réinitialiser
-      poleSelect.innerHTML = '<option value="">-- Sélectionnez un pôle --</option>';
-      programmeSelect.innerHTML = '<option value="">-- Sélectionnez un programme --</option>';
 
-      if (typeFormation && formations[typeFormation]) {
-        Object.keys(formations[typeFormation]).forEach(pole => {
-          let opt = document.createElement("option");
-          opt.value = pole;
-          opt.textContent = pole;
-          poleSelect.appendChild(opt);
-        });
-      }
-    }
-
-    function updateProgrammes() {
-      const typeFormation = document.getElementById("typeFormation").value;
-      const pole = document.getElementById("pole").value;
-      const programmeSelect = document.getElementById("programme");
-
-      // Réinitialiser
-      programmeSelect.innerHTML = '<option value="">-- Sélectionnez un programme --</option>';
-
-      if (typeFormation && pole && formations[typeFormation][pole]) {
-        formations[typeFormation][pole].forEach(prog => {
-          let opt = document.createElement("option");
-          opt.value = prog;
-          opt.textContent = prog;
-          programmeSelect.appendChild(opt);
-        });
-      }
-    }
-  </script>
 </head>
 
 <body class="font-sans text-secondary bg-light">
-
-   <!-- Navbar -->
+  <!-- Navbar -->
   <header class="bg-light shadow sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 md:px-10 py-4 flex justify-between items-center">
       <!-- Logo -->
@@ -125,7 +25,7 @@
         <a href="index.html"><img src="img/logo.jpg" alt="Logo EasyBridge" class="h-10"></a>
         <div class="leading-tight">
           <h1 class="font-bold text-sm text-secondary">Easy Bridge</h1>
-          <p class="text-xs text-gray-600">International Academy</p>
+          <p class="text-xs text-gray-800">International Academy</p>
         </div>
       </div>
 
@@ -137,30 +37,34 @@
       </button>
 
       <!-- Menu desktop -->
-    
-<nav class="hidden md:flex space-x-6 lg:space-x-8 font-medium text-sm items-center">
-  <a href="index.html">Accueil</a>
-  <a href="Formation.html">Nos formations</a>
-  <a href="ContactezNous.html">Infos & Recrutement</a>
-  <!-- Bouton inscription -->
-  <a href="Inscription.html" class="ml-4 bg-primary text-light px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600">
-    Inscription
-  </a>
-</nav>
+      <nav class="hidden md:flex space-x-6 lg:space-x-8 font-medium text-sm items-center" role="navigation"
+        aria-label="Menu principal">
+        <a href="index.html">Accueil</a>
+        <a href="Formation.html">Nos formations</a>
+        <a href="ContactezNous.html">Infos & Recrutement</a>
+        <a href="Inscription.html" class="bg-primary text-light px-4 py-2 rounded-lg font-semibold hover:bg-yellow-800">
+          Inscription
+        </a>
+      </nav>
+    </div>
 
-    <!-- Menu mobile (dépliage vertical) -->
-<nav id="mobile-menu" class="mobile-collapsible md:hidden bg-light border-t border-gray-200" style="height:0">
-  <div class="flex flex-col px-6 pb-2">
-    <a href="index.html" class="block py-3 hover:text-primary border-b border-gold-100">Accueil</a>
-    <a href="Formation.html" class="block py-3 hover:text-primary border-b border-gold-100">Nos formations</a>
-    <a href="ContactezNous.html" class="block py-3 hover:text-primary border-b border-gold-100">Infos & Recrutement</a>
-    <!-- Bouton inscription -->
-    <a href="Inscription.html" class="block mt-3 bg-primary text-light text-center px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600">
-      Inscription
-    </a>
-  </div>
-</nav>
-
+    <!-- Menu mobile -->
+    <nav id="mobile-menu" class="mobile-collapsible md:hidden bg-light border-t border-gray-200" style="height:0">
+      <div class="flex flex-col px-6 pb-2">
+        <a href="index.html" class="block py-3 hover:text-primary border-b border-gold-100">Accueil</a>
+        <a href="Formation.html" class="block py-3 hover:text-primary border-b border-gold-100">Nos formations</a>
+        <a href="ContactezNous.html" class="block py-3 hover:text-primary border-b border-gold-100">Infos &
+          Recrutement</a>
+        <a href="Inscription.html"
+          class="block mt-3 bg-primary text-light text-center px-4 py-2 rounded-lg font-semibold hover:bg-yellow-800">
+          Inscription
+        </a>
+        <a href="#" id="installBtnMobile"
+          class="block mt-3 bg-secondary text-white text-center px-4 py-2 rounded-lg font-semibold hover:bg-gray-700">
+          📲 Installer
+        </a>
+      </div>
+    </nav>
   </header>
   <!-- Section Formulaire -->
   <main>
@@ -168,12 +72,27 @@
       <div class="max-w-4xl mx-auto px-6 bg-light text-secondary rounded-2xl shadow-lg p-8">
         <h2 class="text-3xl font-bold text-center mb-6">Formulaire d'inscription</h2>
 
-        <form action="traitement_inscription.php" method="POST" class="space-y-6">
+        <form action="traitement_inscription.php" method="POST" class="space-y-6" novalidate>
+
           <!-- Nom complet -->
           <div>
-            <label for="nom" class="block text-sm font-semibold mb-2">Nom complet</label>
+            <label for="prenom" class="block text-sm font-semibold mb-2">Prénom</label>
+            <input type="text" id="prenom" name="prenom" required
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+          </div>
+          <div>
+            <label for="nom" class="block text-sm font-semibold mb-2">Nom de famille</label>
             <input type="text" id="nom" name="nom" required
               class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+          </div>
+          <div>
+            <label for="typeSecondaire" class="block text-sm font-semibold mb-2">Type de secondaire</label>
+            <select id="typeSecondaire" name="typeSecondaire" required
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+              <option value="">-- Sélectionnez --</option>
+              <option value="superieure">Secondaire marocain</option>
+              <option value="professionnelle">Secondaire étranger</option>
+            </select>
           </div>
 
           <!-- Email -->
@@ -219,10 +138,13 @@
             </select>
           </div>
 
+          <!-- Zone d'affichage des erreurs -->
+          <div id="form-errors" class="text-red-800 font-medium space-y-1"></div>
+
           <!-- Bouton -->
           <div class="text-center">
-            <button type="submit"
-              class="bg-primary text-light px-8 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition">
+            <button type="submit" aria-label="Envoyer l'inscription"
+              class="bg-primary text-light px-8 py-3 rounded-lg font-semibold hover:bg-yellow-800 transition">
               Envoyer l'inscription
             </button>
           </div>
@@ -232,4 +154,6 @@
   </main>
 
 </body>
+
+
 </html>

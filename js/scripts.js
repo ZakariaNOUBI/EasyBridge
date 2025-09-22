@@ -75,6 +75,165 @@ if (btn && menu) {
   });
 })();
 
+// validation du formulaire d'inscription
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // Empêche l'envoi du formulaire par défaut
+
+      let isValid = true;
+      let messages = [];
+
+      const prenom = document.getElementById("prenom");
+      const nom = document.querySelectorAll("#nom")[1]; // car 2 inputs ont le même id (voir note plus bas)
+      const email = document.getElementById("email");
+      const tel = document.getElementById("telephone");
+      const typeFormation = document.querySelectorAll("#typeFormation")[1]; // éviter id en double
+      const pole = document.getElementById("pole");
+      const programme = document.getElementById("programme");
+
+      // Validation du prénom
+      if (prenom.value.trim() === "") {
+        isValid = false;
+        messages.push("Le prénom est requis.");
+      }
+
+      // Validation du nom
+      if (nom.value.trim() === "") {
+        isValid = false;
+        messages.push("Le nom de famille est requis.");
+      }
+
+      // Email
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)) {
+        isValid = false;
+        messages.push("Adresse email invalide.");
+      }
+
+      // Téléphone
+      if (!/^\d{10,15}$/.test(tel.value.trim())) {
+        isValid = false;
+        messages.push("Numéro de téléphone invalide.");
+      }
+
+      // Sélection type de formation
+      if (typeFormation.value === "") {
+        isValid = false;
+        messages.push("Le type de formation est requis.");
+      }
+
+      // Pôle
+      if (pole.value === "") {
+        isValid = false;
+        messages.push("Le pôle est requis.");
+      }
+
+      // Programme
+      if (programme.value === "") {
+        isValid = false;
+        messages.push("Le programme est requis.");
+      }
+
+      if (isValid) {
+        form.submit(); // soumission manuelle si tout est OK
+      } else {
+        alert(messages.join("\n"));
+      }
+    });
+  });
+
+
+    // Données programmes
+    const formations = {
+      superieure: {
+        "Pôle Gestion": [
+          "Bachelor en Management des PME",
+          "Master en Management des PME",
+          "Bachelor en Management des RH",
+          "Master en Management des RH"
+        ],
+        "Pôle Informatique": [
+          "Bachelor en Systèmes et Réseaux Informatiques",
+          "Master en Systèmes et Réseaux Informatiques",
+          "Bachelor en Développement Logiciel",
+          "Master en Développement Logiciel"
+        ],
+        "Pôle Génie appliqué": [
+          "Bachelor en Efficacité énergétique",
+          "Master en Efficacité Énergétique",
+          "Bachelor en Génie climatique et froid",
+          "Master en Génie climatique et froid"
+        ],
+        "Pôle Logistique": [
+          "Bachelor en Logistique et transports",
+          "Master en Logistique et transports",
+          "Bachelor en Génie Civil et Construction",
+          "Master en Génie Civil et Construction"
+        ]
+      },
+      professionnelle: {
+        "Formations courtes": [
+          "Initiation à l’informatique",
+          "Techniques de communication",
+          "Gestion de projet agile"
+        ],
+        "Certificats professionnels": [
+          "Comptabilité",
+          "Marketing digital",
+          "Langues (Anglais / Français)"
+        ],
+        "Formations techniques": [
+          "Électricité et maintenance",
+          "Réseaux et cybersécurité",
+          "Design et infographie"
+        ],
+        "Programmes sur mesure": [
+          "Leadership",
+          "Développement d’équipe",
+          "Gestion de crise"
+        ]
+      }
+    };
+
+    // Charger dynamiquement les pôles et programmes
+    function updatePoles() {
+      const typeFormation = document.getElementById("typeFormation").value;
+      const poleSelect = document.getElementById("pole");
+      const programmeSelect = document.getElementById("programme");
+
+      // Réinitialiser
+      poleSelect.innerHTML = '<option value="">-- Sélectionnez un pôle --</option>';
+      programmeSelect.innerHTML = '<option value="">-- Sélectionnez un programme --</option>';
+
+      if (typeFormation && formations[typeFormation]) {
+        Object.keys(formations[typeFormation]).forEach(pole => {
+          let opt = document.createElement("option");
+          opt.value = pole;
+          opt.textContent = pole;
+          poleSelect.appendChild(opt);
+        });
+      }
+    }
+
+    function updateProgrammes() {
+      const typeFormation = document.getElementById("typeFormation").value;
+      const pole = document.getElementById("pole").value;
+      const programmeSelect = document.getElementById("programme");
+
+      // Réinitialiser
+      programmeSelect.innerHTML = '<option value="">-- Sélectionnez un programme --</option>';
+
+      if (typeFormation && pole && formations[typeFormation][pole]) {
+        formations[typeFormation][pole].forEach(prog => {
+          let opt = document.createElement("option");
+          opt.value = prog;
+          opt.textContent = prog;
+          programmeSelect.appendChild(opt);
+        });
+      }
+    }
 
 //<!-- Script Filtrage  de formation-->
 
@@ -99,7 +258,7 @@ if (btn && menu) {
   });
 
 
-  // PWA 
+  // 1er essai PWA 
 
   let deferredPrompt;
   const installBtn = document.getElementById("installBtn");
@@ -126,3 +285,50 @@ if (btn && menu) {
 
   if (installBtn) installBtn.addEventListener("click", (e) => handleInstall(e, installBtn));
   if (installBtnMobile) installBtnMobile.addEventListener("click", (e) => handleInstall(e, installBtnMobile));
+
+   //<!-- 2eme essai Script PWA -->
+
+    document.addEventListener('DOMContentLoaded', function () {
+      let deferredPrompt;
+      const installBtn = document.getElementById('installBtn');
+      const installBtnMobile = document.getElementById('installBtnMobile');
+
+      [installBtn, installBtnMobile].forEach(btn => {
+        if (btn) btn.classList.add('opacity-60', 'pointer-events-none');
+      });
+
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+
+        [installBtn, installBtnMobile].forEach(btn => {
+          if (!btn) return;
+          btn.classList.remove('opacity-60', 'pointer-events-none', 'hidden');
+          btn.addEventListener('click', async (ev) => {
+            ev.preventDefault();
+            if (!deferredPrompt) return;
+            deferredPrompt.prompt();
+            const choice = await deferredPrompt.userChoice;
+            console.log('Installation:', choice.outcome);
+            deferredPrompt = null;
+            btn.classList.add('hidden');
+          }, { once: true });
+        });
+      });
+
+      window.addEventListener('appinstalled', () => {
+        console.log('PWA installée ✔');
+        if (installBtn) installBtn.classList.add('hidden');
+        if (installBtnMobile) installBtnMobile.classList.add('hidden');
+      });
+    });
+
+     // <!-- Service Worker -->
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(() => console.log('Service Worker enregistré'))
+          .catch(err => console.error('Erreur SW:', err));
+      });
+    }

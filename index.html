@@ -14,27 +14,10 @@
   <!-- Feuille de style -->
   <link rel="stylesheet" href="style/css/style.css" />
 
-  <!-- Configuration Tailwind (définir avant le script CDN) -->
-  <script>
-    tailwind = tailwind || {};
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#B08E2A',
-            secondary: '#203749',
-            light: '#FFFFFF',
-            whatsapp: '#25D366'
-          }
-        }
-      }
-    };
-  </script>
-
   <!-- Tailwind CSS (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Ton script principal (deferred) -->
+  <!-- Script principal -->
   <script src="js/scripts.js" defer></script>
 </head>
 
@@ -60,18 +43,14 @@
       </button>
 
       <!-- Menu desktop -->
-      <nav class="hidden md:flex space-x-6 lg:space-x-8 font-medium text-sm items-center" role="navigation" aria-label="Menu principal">
+      <nav class="hidden md:flex space-x-6 lg:space-x-8 font-medium text-sm items-center" role="navigation"
+        aria-label="Menu principal">
         <a href="index.html">Accueil</a>
         <a href="Formation.html">Nos formations</a>
         <a href="ContactezNous.html">Infos & Recrutement</a>
-
-        <!-- Bouton inscription -->
         <a href="Inscription.html" class="bg-primary text-light px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600">
           Inscription
         </a>
-
-        <!-- Bouton installation PWA (desktop) -->
-      
       </nav>
     </div>
 
@@ -80,15 +59,14 @@
       <div class="flex flex-col px-6 pb-2">
         <a href="index.html" class="block py-3 hover:text-primary border-b border-gold-100">Accueil</a>
         <a href="Formation.html" class="block py-3 hover:text-primary border-b border-gold-100">Nos formations</a>
-        <a href="ContactezNous.html" class="block py-3 hover:text-primary border-b border-gold-100">Infos & Recrutement</a>
-
-        <!-- Bouton inscription -->
-        <a href="Inscription.html" class="block mt-3 bg-primary text-light text-center px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600">
+        <a href="ContactezNous.html" class="block py-3 hover:text-primary border-b border-gold-100">Infos &
+          Recrutement</a>
+        <a href="Inscription.html"
+          class="block mt-3 bg-primary text-light text-center px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600">
           Inscription
         </a>
-
-        <!-- Bouton installation PWA (mobile) - id ajouté -->
-        <a href="#" id="installBtnMobile" class="block mt-3 bg-secondary text-white text-center px-4 py-2 rounded-lg font-semibold hover:bg-gray-700">
+        <a href="#" id="installBtnMobile"
+          class="block mt-3 bg-secondary text-white text-center px-4 py-2 rounded-lg font-semibold hover:bg-gray-700">
           📲 Installer
         </a>
       </div>
@@ -100,7 +78,8 @@
     <section class="relative bg-secondary text-light">
       <div class="w-full h-[400px] object-cover opacity-60"></div>
       <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-        <h2 class="text-3xl md:text-5xl font-bold mb-4">Construisez votre avenir avec Easy Bridge</h2>
+        <h2 class="text-3xl md:text-5xl font-bold mb-4 animate-float">Construisez votre avenir avec Easy Bridge</h2>
+
         <p class="text-lg md:text-xl mb-6">Une éducation internationale, des opportunités mondiales</p>
         <a href="Formation.html" class="bg-primary text-light px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600">
           Découvrir nos programmes
@@ -118,57 +97,70 @@
       </p>
     </section>
 
-    <!-- Programmes -->
+    <!-- Programmes (12 colonnes) -->
     <section class="bg-gray-100 py-12">
       <div class="max-w-6xl mx-auto px-6">
         <h3 class="text-2xl font-bold text-center mb-8">Nos Programmes</h3>
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="bg-light shadow rounded-xl overflow-hidden">
-            <img src="img/FormationPRof.jpg" alt="Formation professionnelle" class="w-full h-48 object-cover">
-            <div class="p-6">
-              <h4 class="text-xl font-bold mb-2">Formation professionnelle</h4>
-              <p class="text-gray-700 mb-4">Développez des compétences pratiques et entrez rapidement sur le marché du
-                travail grâce à nos formations spécialisées.</p>
-              <a href="Formation.html#Fp" class="text-primary font-semibold hover:underline">En savoir plus →</a>
+        <div class="grid grid-cols-12 gap-8">
+          <div class="col-span-12 md:col-span-6">
+            <div class="bg-light shadow rounded-xl overflow-hidden h-full">
+              <img src="img/FormationPRof.jpg" alt="Formation professionnelle" class="w-full h-48 object-cover">
+              <div class="p-6">
+                <h4 class="text-xl font-bold mb-2">Formation professionnelle</h4>
+                <p class="text-gray-700 mb-4">
+                  Développez des compétences pratiques et entrez rapidement sur le marché du travail grâce à nos
+                  formations spécialisées.
+                </p>
+                <a href="Formation.html#Fp" class="text-primary font-semibold hover:underline">En savoir plus →</a>
+              </div>
             </div>
           </div>
-          <div class="bg-light shadow rounded-xl overflow-hidden">
-            <img src="img/FormationSup.jpg" alt="Formation supérieure" class="w-full h-48 object-cover">
-            <div class="p-6">
-              <h4 class="text-xl font-bold mb-2">Formation supérieure</h4>
-              <p class="text-gray-700 mb-4">Préparez-vous à une carrière internationale grâce à nos programmes
-                universitaires de haut niveau.</p>
-              <a href="Formation.html#Fs" class="text-primary font-semibold hover:underline">En savoir plus →</a>
+          <div class="col-span-12 md:col-span-6">
+            <div class="bg-light shadow rounded-xl overflow-hidden h-full">
+              <img src="img/FormationSup.jpg" alt="Formation supérieure" class="w-full h-48 object-cover">
+              <div class="p-6">
+                <h4 class="text-xl font-bold mb-2">Formation supérieure</h4>
+                <p class="text-gray-700 mb-4">
+                  Préparez-vous à une carrière internationale grâce à nos programmes universitaires de haut niveau.
+                </p>
+                <a href="Formation.html#Fs" class="text-primary font-semibold hover:underline">En savoir plus →</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Actualités -->
+    <!-- Actualités (12 colonnes) -->
     <section class="max-w-6xl mx-auto px-6 py-12">
       <h3 class="text-2xl font-bold text-center mb-8">Actualités</h3>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-light shadow rounded-xl overflow-hidden">
-          <img src="img/Devimage.jpg" alt="Nouvelle 1" class="h-40 w-full object-cover">
-          <div class="p-4">
-            <h4 class="font-bold mb-2">Rentrée académique 2025</h4>
-            <p class="text-gray-700 text-sm">Découvrez les nouveautés et événements prévus pour la rentrée.</p>
+      <div class="grid grid-cols-12 gap-8">
+        <div class="col-span-12 md:col-span-4">
+          <div class="bg-light shadow rounded-xl overflow-hidden h-full">
+            <img src="img/Devimage.jpg" alt="Nouvelle 1" class="h-40 w-full object-cover">
+            <div class="p-4">
+              <h4 class="font-bold mb-2">Rentrée académique 2025</h4>
+              <p class="text-gray-700 text-sm">Découvrez les nouveautés et événements prévus pour la rentrée.</p>
+            </div>
           </div>
         </div>
-        <div class="bg-light shadow rounded-xl overflow-hidden">
-          <img src="img/Atelier.jpg" alt="Nouvelle 2" class="h-40 w-full object-cover">
-          <div class="p-4">
-            <h4 class="font-bold mb-2">Nouvel atelier créatif</h4>
-            <p class="text-gray-700 text-sm">Easy Bridge propose un atelier de cake design pour découvrir l’art de
-              décorer des gâteaux avec créativité.</p>
+        <div class="col-span-12 md:col-span-4">
+          <div class="bg-light shadow rounded-xl overflow-hidden h-full">
+            <img src="img/Atelier.jpg" alt="Nouvelle 2" class="h-40 w-full object-cover">
+            <div class="p-4">
+              <h4 class="font-bold mb-2">Nouvel atelier créatif</h4>
+              <p class="text-gray-700 text-sm">Easy Bridge propose un atelier de cake design pour découvrir l’art de
+                décorer des gâteaux avec créativité.</p>
+            </div>
           </div>
         </div>
-        <div class="bg-light shadow rounded-xl overflow-hidden">
-          <img src="img/ceremonie.jpg" alt="Nouvelle 3" class="h-40 w-full object-cover">
-          <div class="p-4">
-            <h4 class="font-bold mb-2">Succès de nos diplômés</h4>
-            <p class="text-gray-700 text-sm">Plus de 90% de nos étudiants trouvent un emploi dans les 6 mois.</p>
+        <div class="col-span-12 md:col-span-4">
+          <div class="bg-light shadow rounded-xl overflow-hidden h-full">
+            <img src="img/ceremonie.jpg" alt="Nouvelle 3" class="h-40 w-full object-cover">
+            <div class="p-4">
+              <h4 class="font-bold mb-2">Succès de nos diplômés</h4>
+              <p class="text-gray-700 text-sm">Plus de 90% de nos étudiants trouvent un emploi dans les 6 mois.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -178,11 +170,15 @@
     <section class="bg-gray-100 py-12">
       <div class="max-w-6xl mx-auto px-6 text-center">
         <h3 class="text-2xl font-bold mb-8">Nos Partenaires</h3>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
-          <img src="img/partner1.png" alt="Partenaire 1" class="h-16 mx-auto">
-          <img src="img/partner2.png" alt="Partenaire 2" class="h-16 mx-auto">
-          <img src="img/partner3.png" alt="Partenaire 3" class="h-16 mx-auto">
-          <img src="img/partner4.png" alt="Partenaire 4" class="h-16 mx-auto">
+        <div class="grid grid-cols-12 gap-6 items-center">
+          <div class="col-span-6 md:col-span-3"><img src="img/partner1.png" alt="Partenaire 1" class="h-16 mx-auto">
+          </div>
+          <div class="col-span-6 md:col-span-3"><img src="img/partner2.png" alt="Partenaire 2" class="h-16 mx-auto">
+          </div>
+          <div class="col-span-6 md:col-span-3"><img src="img/partner3.png" alt="Partenaire 3" class="h-16 mx-auto">
+          </div>
+          <div class="col-span-6 md:col-span-3"><img src="img/partner4.png" alt="Partenaire 4" class="h-16 mx-auto">
+          </div>
         </div>
       </div>
     </section>
@@ -190,7 +186,8 @@
     <!-- Call to Action -->
     <section class="py-12 text-center">
       <h3 class="text-2xl font-bold mb-4">Rejoignez Easy Bridge International Academy</h3>
-      <p class="text-gray-700 mb-6">Construisez votre avenir dès aujourd’hui avec nos programmes de formation adaptés.</p>
+      <p class="text-gray-700 mb-6">Construisez votre avenir dès aujourd’hui avec nos programmes de formation adaptés.
+      </p>
       <a href="ContactezNous.html" class="bg-primary text-light px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600">
         Contactez-nous
       </a>
@@ -202,58 +199,10 @@
     © 2025 Easy Bridge International Academy. Tous droits réservés.
   </footer>
 
-  <!-- Enregistrement du Service Worker (après chargement) -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js')
-          .then(() => console.log('Service Worker enregistré'))
-          .catch(err => console.error('Erreur SW:', err));
-      });
-    }
-  </script>
 
-  <!-- Script PWA: gestion beforeinstallprompt -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      let deferredPrompt;
-      const installBtn = document.getElementById('installBtn');
-      const installBtnMobile = document.getElementById('installBtnMobile');
 
-      // Désactiver visuellement les liens tant que non prêt
-      [installBtn, installBtnMobile].forEach(btn => {
-        if (btn) {
-          btn.classList.add('opacity-60', 'pointer-events-none');
-        }
-      });
-
-      window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-
-        [installBtn, installBtnMobile].forEach(btn => {
-          if (!btn) return;
-          // rendre cliquable et visible
-          btn.classList.remove('opacity-60', 'pointer-events-none', 'hidden');
-          btn.addEventListener('click', async (ev) => {
-            ev.preventDefault();
-            if (!deferredPrompt) return;
-            deferredPrompt.prompt();
-            const choice = await deferredPrompt.userChoice;
-            console.log('Installation:', choice.outcome);
-            deferredPrompt = null;
-            btn.classList.add('hidden');
-          }, { once: true });
-        });
-      });
-
-      window.addEventListener('appinstalled', () => {
-        console.log('PWA installée ✔');
-        if (installBtn) installBtn.classList.add('hidden');
-        if (installBtnMobile) installBtnMobile.classList.add('hidden');
-      });
-    });
-  </script>
+ 
 
 </body>
+
 </html>
