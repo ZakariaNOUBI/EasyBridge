@@ -1,0 +1,3 @@
+Un lien vers le repository du projet : https://github.com/ZakariaNOUBI/EasyBridge.github.io.git
+
+le lien vers le site hébergé : https://zakarianoubi.github.io/EasyBridge/index.html
