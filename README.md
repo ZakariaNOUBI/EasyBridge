@@ -1,5 +1,5 @@
 # EasyBridge
-Une école supérieur privée
+Site Web pour Une école supérieur privée nommé Easy Bridge International Academy
 
 ## 🧩 Composants Tailwind utilisés
 
